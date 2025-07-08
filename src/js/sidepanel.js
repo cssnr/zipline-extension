@@ -159,6 +159,7 @@ async function closePanel(event) {
 let ws
 let reconnectTimeout
 
+// noinspection JSUnusedLocalSymbols
 function wsConnect(options) {
     console.log('wsConnect:', options)
     console.log(`siteUrl: ${options.siteUrl}`)

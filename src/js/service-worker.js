@@ -131,19 +131,26 @@ async function setPopup() {
  */
 async function onCommand(command) {
     console.debug(`onCommand: ${command}`)
-    if (command === 'uploadFile') {
+    if (command === 'openZipline') {
         const { options } = await chrome.storage.sync.get(['options'])
         if (options.siteUrl) {
-            const url = `${options.siteUrl}/uppy/`
-            await chrome.tabs.create({ active: true, url })
+            console.debug('chrome.tabs.create:', options.siteUrl)
+            await chrome.tabs.create({ active: true, url: options.siteUrl })
+        } else {
+            console.debug('chrome.runtime.openOptionsPage()')
+            await chrome.runtime.openOptionsPage()
         }
-    } else if (command === 'openGallery') {
+    } else if (command === 'openFiles') {
         const { options } = await chrome.storage.sync.get(['options'])
         if (options.siteUrl) {
-            const url = `${options.siteUrl}/gallery/`
+            const url = `${options.siteUrl}/dashboard/files`
+            console.debug('chrome.tabs.create:', url)
             await chrome.tabs.create({ active: true, url })
+        } else {
+            console.debug('chrome.runtime.openOptionsPage()')
+            await chrome.runtime.openOptionsPage()
         }
-    } else if (command === 'showSidePanel') {
+    } else if (command === 'openSidePanel') {
         openSidePanel()
     } else {
         console.warn('Unknown Command:', command)
@@ -215,6 +222,7 @@ function onChanged(changes, namespace) {
                     createContextMenus(newValue)
                 } else {
                     console.log('Disabled contextMenu...')
+                    // noinspection JSIgnoredPromiseFromCall
                     chrome.contextMenus?.removeAll()
                 }
             }
@@ -252,6 +260,7 @@ async function createContextMenus(options) {
         return console.debug('Skipping: chrome.contextMenus')
     }
     console.debug('createContextMenus:', options)
+    // noinspection ES6MissingAwait
     chrome.contextMenus.removeAll()
     //// Albums
     // const albums = await getAlbums()
@@ -280,7 +289,7 @@ async function createContextMenus(options) {
     ]
     contexts.push([['all'], 'openPopup', 'Open Popup'])
     if (options.ctxSidePanel) {
-        contexts.push([['all'], 'side-panel', 'Show Side Panel'])
+        contexts.push([['all'], 'side-panel', 'Open Side Panel'])
     }
     contexts.push([['all'], 'options', 'Open Options'])
     contexts.forEach(addContext)
@@ -311,83 +320,7 @@ function addContext(context) {
     }
 }
 
-// /**
-//  * @function getAlbums
-//  * @return {Promise<String[]|undefined>}
-//  */
-// async function getAlbums() {
-//     const { options } = await chrome.storage.sync.get(['options'])
-//     // console.debug('options:', options)
-//     if (!options.siteUrl) {
-//         console.warn('No Site URL:', options.siteUrl)
-//         return
-//     }
-//     const opts = {
-//         method: 'GET',
-//         headers: { Authorization: options.authToken },
-//     }
-//     console.debug('opts:', opts)
-//     let response
-//     let data
-//     const url = new URL(`${options.siteUrl}/api/albums/`)
-//     console.debug('url:', url)
-//     try {
-//         response = await fetch(url, opts)
-//         console.debug(`response.status: ${response.status}`, response)
-//         if (!response?.ok) {
-//             console.warn('Error Fetching:', url)
-//             return
-//         }
-//         data = await response.json()
-//     } catch (e) {
-//         console.warn(e)
-//         return
-//     }
-//     /** @type {[String]} */
-//     const albums = []
-//     /**
-//      * @type {Object}
-//      * @property {[String]} albums
-//      */
-//     for (const album of data.albums) {
-//         albums.push(album.name)
-//     }
-//     albums.sort()
-//     console.debug('albums:', albums)
-//     return albums
-// }
-
-// /**
-//  * Post URL to endpoint
-//  * @function postURL
-//  * @param {String} endpoint
-//  * @param {String} url
-//  * @param {Object=} kwargs Additional Header Key/Value Pairs
-//  * @return {Promise<Response>}
-//  */
-// async function postURL(endpoint, url, kwargs = {}) {
-//     console.debug('postURL:', endpoint, url)
-//     const { options } = await chrome.storage.sync.get(['options'])
-//     console.debug('options:', options)
-//     if (!options?.siteUrl || !options?.authToken) {
-//         throw new Error('Missing URL or Token.')
-//     }
-//     const headers = { ...{ Authorization: options.authToken }, ...kwargs }
-//     console.debug('headers:', headers)
-//     const body = JSON.stringify({ url: url })
-//     const opts = {
-//         method: 'POST',
-//         headers: headers,
-//         body: body,
-//     }
-//     const apiUrl = `${options.siteUrl}/api/${endpoint}/`
-//     const response = await fetch(apiUrl, opts)
-//     console.debug('response:', response)
-//     return response
-// }
-
 /**
- TODO: Add Error Checking and Handling...
  * @function processShortURL
  * @param {String} linkUrl
  * @return {Promise<void>}
@@ -433,7 +366,6 @@ async function processShortURL(linkUrl) {
 }
 
 /**
- * TODO: Add Error Checking and Handling...
  * @function processFileUpload
  * @param {String} srcUrl
  * @return {Promise<void>}
@@ -444,8 +376,8 @@ async function processFileUpload(srcUrl) {
         const srcResponse = await fetch(srcUrl)
         const blob = await srcResponse.blob()
         console.debug('blob:', blob)
-
-        let filename = srcUrl.split('/').pop().toString()
+        const srcURL = new URL(srcUrl)
+        let filename = srcURL.pathname.split('/').pop().toString()
         console.debug('source filename:', filename)
         if (!filename.includes('.')) {
             const ext = blob.type.split('/')[1]
@@ -462,7 +394,11 @@ async function processFileUpload(srcUrl) {
         formData.append('file', blob, filename)
 
         const { options } = await chrome.storage.sync.get(['options'])
-        const headers = { Authorization: options.authToken }
+        // TODO: Add Upload Options (to headers)...
+        const headers = {
+            Authorization: options.authToken,
+            'x-zipline-original-name': true,
+        }
 
         const response = await fetch(`${options.siteUrl}/api/upload`, {
             body: formData,

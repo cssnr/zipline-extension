@@ -43,7 +43,7 @@ function handleClipboardWrite(data) {
     const textEl = document.getElementById('text')
     textEl.value = data
     textEl.select()
-    document.execCommand('copy')
+    document.execCommand('copy') // NOSONAR
     console.debug('%c handleClipboardWrite: SUCCESS', 'color: Lime')
 }
 

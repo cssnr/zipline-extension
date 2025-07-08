@@ -88,43 +88,6 @@ export async function openExtPanel(
 }
 
 /**
- * Show Bootstrap Toast
- * @function showToast
- * @param {String} message
- * @param {String} type
- */
-export function showToast(message, type = 'success') {
-    console.debug(`showToast: ${type}: ${message}`)
-    const clone = document.querySelector('.d-none .toast')
-    const container = document.getElementById('toast-container')
-    if (clone && container) {
-        const element = clone.cloneNode(true)
-        element.querySelector('.toast-body').innerHTML = message
-        element.classList.add(`text-bg-${type}`)
-        container.appendChild(element)
-        const toast = new bootstrap.Toast(element)
-        element.addEventListener('mousemove', () => toast.hide())
-        toast.show()
-    } else {
-        console.info('Missing clone or container:', clone, container)
-    }
-}
-
-/**
- * DeBounce Function
- * @function debounce
- * @param {Function} fn
- * @param {Number} timeout
- */
-export function debounce(fn, timeout = 250) {
-    let timeoutID
-    return (...args) => {
-        clearTimeout(timeoutID)
-        timeoutID = setTimeout(() => fn(...args), timeout)
-    }
-}
-
-/**
  * @function updatePlatform
  * @return {Promise<any>}
  */
@@ -166,42 +129,39 @@ export async function updatePlatform() {
     return platform
 }
 
-// /**
-//  *
-//  * @param {String} type
-//  * @param {Object} [data]
-//  * @return {Promise<Any>}
-//  */
-// export async function sendOffscreen(type, data = {}) {
-//     await chrome.offscreen.createDocument({
-//         url: 'html/offscreen.html',
-//         reasons: [chrome.offscreen.Reason.LOCAL_STORAGE],
-//         justification: 'Access local storage.',
-//     })
-//     const message = { target: 'offscreen', type, data }
-//     // noinspection JSIgnoredPromiseFromCall
-//     return chrome.runtime.sendMessage(message)
-// }
+/**
+ * Show Bootstrap Toast
+ * @function showToast
+ * @param {String} message
+ * @param {String} type
+ */
+export function showToast(message, type = 'success') {
+    console.debug(`showToast: ${type}: ${message}`)
+    const clone = document.querySelector('.d-none .toast')
+    const container = document.getElementById('toast-container')
+    if (clone && container) {
+        const element = clone.cloneNode(true)
+        element.querySelector('.toast-body').innerHTML = message
+        element.classList.add(`text-bg-${type}`)
+        container.appendChild(element)
+        const toast = new bootstrap.Toast(element)
+        element.addEventListener('mousemove', () => toast.hide())
+        toast.show()
+    } else {
+        console.info('Missing clone or container:', clone, container)
+    }
+}
 
-// /**
-//  * @function localStorageFn
-//  * @param {String} key
-//  * @param {String} [value]
-//  * @return {Promise<String>}
-//  */
-// export async function localStorageFn(key, value) {
-//     console.debug(`localStorageFn: ${key}`, value)
-//     if (typeof localStorage !== 'undefined') {
-//         console.debug('%c Firefox: localStorage', 'color: Orange')
-//         if (value) {
-//             localStorage.setItem(key, value)
-//         }
-//         return localStorage.getItem(key)
-//     } else if (chrome.offscreen) {
-//         console.debug('%c Chrome: offscreen', 'color: DodgerBlue')
-//         if (value) {
-//             await sendOffscreen('storage', { key, value })
-//         }
-//         return sendOffscreen('storage', { key })
-//     }
-// }
+/**
+ * DeBounce Function
+ * @function debounce
+ * @param {Function} fn
+ * @param {Number} timeout
+ */
+export function debounce(fn, timeout = 250) {
+    let timeoutID
+    return (...args) => {
+        clearTimeout(timeoutID)
+        timeoutID = setTimeout(() => fn(...args), timeout)
+    }
+}

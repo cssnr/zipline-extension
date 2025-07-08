@@ -53,28 +53,6 @@ async function initOptions() {
     console.debug('platform:', platform)
 }
 
-// /**
-//  * Reload Albums Callback
-//  * @function reloadAlbums
-//  * @param {MouseEvent} event
-//  */
-// async function reloadAlbums(event) {
-//     event.preventDefault()
-//     console.debug('reloadAlbums:', event)
-//     const button = event.target.closest('button')
-//     const icon = event.target.closest('i') || event.target.querySelector('i')
-//     console.debug('button:', button)
-//     console.debug('icon:', icon)
-//     // button.classList.add('disabled')
-//     icon.classList.add('fa-spin')
-//     await chrome.runtime.sendMessage('createContextMenus')
-//     // button.classList.remove('disabled')
-//     icon.classList.remove('fa-spin')
-//     const albumsUpdated = $('#albumsUpdated')
-//     albumsUpdated.fadeToggle()
-//     setTimeout(() => albumsUpdated.fadeToggle(), 3000)
-// }
-
 /**
  * Login Background Change Callback
  * @function loginBackgroundChange

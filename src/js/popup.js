@@ -281,6 +281,7 @@ async function initPopup(event) /* NOSONAR */ {
  * @param {Object} options
  */
 function initUppy(options) {
+    // TODO: Add Upload Options (to headers)...
     if (uppyInit) {
         return console.debug('Uppy Already Initialized')
     }
@@ -303,6 +304,7 @@ function initUppy(options) {
             endpoint: options.siteUrl + '/api/upload/',
             headers: {
                 Authorization: options.authToken,
+                'x-zipline-original-name': true,
             },
             // getResponseError: getResponseError,
         })
@@ -510,7 +512,7 @@ async function fetchToken() {
 
     const data = await response.json()
     console.debug('data:', data)
-    return { authToken: data.token, siteUrl: window.location.origin }
+    return { authToken: data?.token, siteUrl: window.location.origin }
 }
 
 /**
@@ -570,6 +572,8 @@ function updateTable(data, options) /* NOSONAR */ {
         row.id = `row-${i}`
         row.dataset.idx = i.toString()
 
+        const name = data[i].originalName || data[i].name
+
         // URLs
         let viewURL = new URL(`${options.siteUrl}/view/${data[i].name}`)
         let rawURL = new URL(`${options.siteUrl}/raw/${data[i].name}`)
@@ -585,12 +589,12 @@ function updateTable(data, options) /* NOSONAR */ {
 
         // Set mouseOver data on row
         row.classList.add('mouse-link')
-        row.dataset.name = data[i].name
+        row.dataset.name = name
 
         // File Link -> 1
         const link = document.createElement('a')
-        link.text = data[i].name
-        link.title = data[i].name
+        link.text = name
+        link.title = name
         link.href = viewURL.href
         link.setAttribute('role', 'button')
         link.classList.add(
@@ -601,7 +605,7 @@ function updateTable(data, options) /* NOSONAR */ {
             // 'mouse-link'
         )
         link.target = '_blank'
-        link.dataset.name = data[i].name
+        link.dataset.name = name
         link.dataset.row = i.toString()
         // link.dataset.thumb = thumbURL?.href || rawURL.href
 
@@ -649,8 +653,8 @@ function updateTable(data, options) /* NOSONAR */ {
         // noinspection JSIgnoredPromiseFromCall
         updateContextMenu(drop, data[i])
         const fileName = drop.querySelector('li.mouse-link')
-        fileName.innerText = data[i].name
-        fileName.dataset.clipboardText = data[i].name
+        fileName.innerText = name
+        fileName.dataset.clipboardText = name
         // fileName.dataset.thumb = thumbURL?.href || rawURL.href
         drop.querySelector('.copy-link').dataset.clipboardText = viewURL.href
         drop.querySelector('.copy-raw').dataset.clipboardText = rawURL.href
@@ -753,7 +757,7 @@ async function updateContextMenu(ctx, data) {
         // link.classList.add('clip')
         // link.dataset.clipboardText = data.password
     } else {
-        disableEl(ctx, '.fa-key', 'text-warning-emphasis')
+        disableEl(ctx, '.fa-key', 'text-danger-emphasis')
     }
     if (data.deletesAt) {
         enableEl(ctx, '.fa-hourglass-start')
@@ -823,7 +827,7 @@ async function ctxMenu(event) {
         expireInput.value = file.deletesAt
         document.querySelector('#expire-modal .file-name').textContent =
             file.name
-        expireModal.show()
+        // expireModal.show() // TODO: Refactor as Original Name Moda;
     } else if (action === 'password') {
         passwordInput.value = file.password
         document.querySelector('#password-modal .file-name').textContent =
@@ -844,21 +848,22 @@ async function toggleFavorite() {
     const file = fileData[ctxMenuRow.value]
     console.debug('file:', file)
     const data = { favorite: !file.favorite }
-    const response = await handleFile(file.id, 'POST', data)
+    const response = await handleFile(file.id, 'PATCH', data)
     console.debug('response:', response)
     if (response.ok) {
         const json = await response.json()
         console.debug('json:', json)
-        fileData[ctxMenuRow.value] = json
+        // fileData[ctxMenuRow.value] = json
+        Object.assign(fileData[ctxMenuRow.value], json)
         const ctx = document.getElementById(`ctx-${ctxMenuRow.value}`)
-        console.debug('ctx:', ctx)
+        // console.debug('ctx:', ctx)
         await updateFileIcons(json)
         if (json.favorite) {
-            enableEl(ctx, '.fa-star', 'text-danger-emphasis')
+            enableEl(ctx, '.fa-star', 'text-warning-emphasis')
         } else {
-            disableEl(ctx, '.fa-star', 'text-danger-emphasis')
+            disableEl(ctx, '.fa-star', 'text-warning-emphasis')
         }
-        showToast(`Privacy Updated: <b>${file.name}</b>`)
+        showToast(`Favorite Updated: <b>${file.name}</b>`)
     } else {
         console.info(`Favorite Error: "${file.name}", response:`, response)
         showToast(`Error Setting Favorite: <b>${file.name}</b>`, 'danger')
@@ -882,9 +887,9 @@ async function passwordForm(event) {
         return passwordModal.hide()
     }
     console.log(`Setting Password: "${password}" on file: ${file.name}`)
-    const data = { password: password }
+    const data = { password: password || null }
     // TODO: Catch Error? Throw should happen during init...
-    const response = await handleFile(file.name, 'POST', data)
+    const response = await handleFile(file.id, 'PATCH', data)
     console.debug('response:', response)
     if (response.ok) {
         showToast(`Password Updated: <b>${file.name}</b>`)
@@ -892,7 +897,9 @@ async function passwordForm(event) {
         // console.debug('json:', json)
         const ctx = document.getElementById(`ctx-${ctxMenuRow.value}`)
         // console.debug('ctx:', ctx)
-        fileData[ctxMenuRow.value] = json
+        // fileData[ctxMenuRow.value] = json
+        json.password = !!password
+        Object.assign(fileData[ctxMenuRow.value], json)
         await updateContextMenu(ctx, json)
         await updateFileIcons(json)
         passwordModal.hide()
@@ -913,16 +920,16 @@ async function expireForm(event) {
     event.preventDefault()
     const file = fileData[ctxMenuRow.value]
     console.debug('file:', file)
-    const expr = expireInput.value
-    if (expr === file.expr) {
-        console.info(`New Expire Value Same as Old: ${expr}`)
+    const deletesAt = expireInput.value
+    if (deletesAt === file.deletesAt) {
+        console.info(`New Expire Value Same as Old: ${deletesAt}`)
         showToast(`New Expire same as Previous: <b>${file.name}</b>`, 'warning')
         return expireModal.hide()
     }
-    console.log(`Setting Expire: "${expr}" on file: ${file.name}`)
-    const data = { expr: expr }
+    console.log(`Setting Expire: "${deletesAt}" on file: ${file.name}`)
+    const data = { deletesAt }
     // TODO: Catch Error? Throw should happen during init...
-    const response = await handleFile(file.name, 'POST', data)
+    const response = await handleFile(file.id, 'PATCH', data)
     console.debug('response:', response)
     if (response.ok) {
         showToast(`Expire Updated: <b>${file.name}</b>`)
@@ -930,12 +937,13 @@ async function expireForm(event) {
         // console.debug('json:', json)
         const ctx = document.getElementById(`ctx-${ctxMenuRow.value}`)
         // console.debug('ctx:', ctx)
-        fileData[ctxMenuRow.value] = json
+        // fileData[ctxMenuRow.value] = json
+        Object.assign(fileData[ctxMenuRow.value], json)
         await updateContextMenu(ctx, json)
         await updateFileIcons(json)
         expireModal.hide()
     } else {
-        console.info(`Error Setting Expire: "${expr}", response:`, response)
+        console.info(`Set Expire Error: "${deletesAt}", response:`, response)
         showToast(`Error Setting Expire: <b>${file.name}</b>`, 'danger')
         expireModal.hide()
     }
@@ -954,7 +962,7 @@ async function deleteConfirm(event) {
     const name = document.querySelector('#delete-modal .file-name').textContent
     console.log(`deleteConfirm await deleteFile: ${name}`)
     try {
-        const response = await handleFile(name, 'DELETE')
+        const response = await handleFile(file.id, 'DELETE')
         console.debug('response:', response)
         if (!response.ok) throw new Error('Response Failed')
         mediaOuter.classList.add('d-none')
@@ -978,19 +986,19 @@ async function deleteConfirm(event) {
 async function handleFile(fileId, method, data = null) {
     console.debug(`handleFile: ${fileId}`)
     const { options } = await chrome.storage.sync.get(['options'])
-    console.debug('options:', options)
-    const headers = { Authorization: options.authToken }
+    // console.debug('options:', options)
     const requestInit = {
         method: method,
-        headers: headers,
+        headers: { Authorization: options.authToken },
     }
     if (data) {
+        requestInit.headers['Content-Type'] = 'application/json'
         requestInit.body = JSON.stringify(data)
     }
-    // TODO: Update to /file/ Endpoint...
-    const apiUrl = `${options.siteUrl}/api/user/files/${fileId}`
-    console.debug('apiUrl:', apiUrl)
-    return await fetch(apiUrl, requestInit)
+    console.debug('requestInit:', requestInit)
+    const url = `${options.siteUrl}/api/user/files/${fileId}`
+    console.debug('url:', url)
+    return await fetch(url, requestInit)
 }
 
 /**
@@ -1119,20 +1127,6 @@ function onMouseOver(event) {
 }
 
 function onMouseLeave() {
-    // console.debug(`onMouseLeave: ${mouseRow}:`, event.target)
-    // const tr = event.target.closest('tr')
-    // const tr = document.getElementById(mouseRow)
-    // if (filesTable.contains(event.target)) {
-    //     // mouseRow = null
-    //     return console.debug('element is child of table...')
-    // }
-    // console.debug('tr:', tr)
-    // console.debug('mouseRow:', mouseRow)
-    // if (tr.id === mouseRow) {
-    //     // console.debug('onMouseLeave: return')
-    //     return
-    // }
-    // console.debug('onMouseLeave: setTimeout')
     document.getElementById(`menu-${menuShown}`)?.classList.add('d-none')
     menuShown = null
     mouseRow = null
@@ -1173,9 +1167,6 @@ async function popInClick(event, close = true) {
     const popup = chrome.runtime.getURL('/html/popup.html')
     try {
         await chrome.action.setPopup({ popup })
-        // TODO: Chrome Error: Extension does not have a popup on the active tab
-        // await chrome.runtime.sendMessage('openPopup')
-        // TODO: Chrome Error: Browser window has no toolbar.
         await openPopup()
     } catch (e) {
         console.debug(e)

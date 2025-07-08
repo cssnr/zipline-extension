@@ -12,23 +12,23 @@
       },
       "description": "Show Popup"
     },
-    "showSidePanel": {
+    "openSidePanel": {
       "suggested_key": {
-        "default": "Alt+Shift+S"
+        "default": "Alt+Shift+P"
       },
-      "description": "Show Side Panel"
+      "description": "Open Side Panel"
     },
-    "uploadFile": {
+    "openZipline": {
       "suggested_key": {
         "default": "Alt+Shift+A"
       },
-      "description": "Upload Files"
+      "description": "Open Zipline"
     },
-    "openGallery": {
+    "openFiles": {
       "suggested_key": {
         "default": "Alt+Shift+G"
       },
-      "description": "Open Gallery"
+      "description": "Open Files"
     }
   },
   "permissions": [
