@@ -1,0 +1,65 @@
+{
+  "manifest_version": 3,
+  "version": "0.0.1",
+  "name": "Zipline Extension",
+  "description": "Zipline Extension Web Extension.",
+  "homepage_url": "https://github.com/cssnr/zipline-extension",
+  "author": "Shane",
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+Shift+Z"
+      },
+      "description": "Show Popup"
+    },
+    "showSidePanel": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Show Side Panel"
+    },
+    "uploadFile": {
+      "suggested_key": {
+        "default": "Alt+Shift+A"
+      },
+      "description": "Upload Files"
+    },
+    "openGallery": {
+      "suggested_key": {
+        "default": "Alt+Shift+G"
+      },
+      "description": "Open Gallery"
+    }
+  },
+  "permissions": [
+    "activeTab",
+    "clipboardWrite",
+    "contextMenus",
+    "notifications",
+    "scripting",
+    "storage"
+  ],
+  "background": { "type": "module" },
+  "options_ui": {
+    "page": "html/options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "Zipline Extension",
+    "default_popup": "html/popup.html",
+    "default_icon": {
+      "16": "media/logo16.png",
+      "32": "media/logo32.png",
+      "48": "media/logo48.png",
+      "96": "media/logo96.png",
+      "128": "media/logo128.png"
+    }
+  },
+  "icons": {
+    "16": "media/logo16.png",
+    "32": "media/logo32.png",
+    "48": "media/logo48.png",
+    "96": "media/logo96.png",
+    "128": "media/logo128.png"
+  }
+}

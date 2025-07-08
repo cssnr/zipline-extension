@@ -1,0 +1,28 @@
+/* CSS for popup.html */
+
+body {
+    overflow-x: clip;
+    overflow-y: auto;
+}
+
+#media-outer {
+    z-index: 3;
+}
+
+#media-image {
+    max-height: 44vh;
+    background-color: var(--bs-body-bg);
+    border-color: var(--bs-emphasis-color);
+}
+
+.hover-menu {
+    position: absolute;
+}
+
+ul.dropdown-menu {
+    width: 280px;
+}
+
+table tr:last-child td {
+    border-bottom: none !important;
+}

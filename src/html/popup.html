@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zipline Extension</title>
+    <link rel="icon" href="../media/logo16.png" sizes="any">
+    <link rel="stylesheet" type="text/css" href="../dist/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../dist/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../dist/uppy/uppy.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/popup.css">
+    <script type="text/javascript" src="../js/theme.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-1">
+    <div class="d-flex flex-row align-items-center gap-2">
+<!--        <div class="d-flex align-items-center justify-content-center text-nowrap">-->
+<!--            <a id="img-link"  href=""><img src="../media/logo32.png" class="" height="32" width="32" alt="Zipline Extension"></a>-->
+<!--            <h4 class="my-0 text-ellipsis"><a class="link-body-emphasis text-decoration-none" href="">Files</a></h4>-->
+<!--        </div>-->
+        <a id="img-link"  href="#"><img src="../media/logo32.png" class="" height="32" width="32" alt="Zipline Extension"></a>
+        <div class="dropdown">
+            <a class="link-body-emphasis text-decoration-none" id="bs-theme-dropdown" title="Theme Switcher" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                <i id="theme-icon" class="fa-solid fa-circle-half-stroke fa-lg" style="min-width: 20px;"></i> <i class="fa-solid fa-caret-down fa-xs mx-1"></i></a>
+            <ul class="dropdown-menu auto dropdown-menu-end" aria-labelledby="bs-theme-dropdown">
+                <li><button class="dropdown-item" data-bs-theme-value="dark" aria-pressed="false">
+                    <i class="fa-regular fa-moon" style="min-width: 16px;"></i> <span class="ms-3">Dark</span></button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="light" aria-pressed="false">
+                    <i class="fa-solid fa-sun" style="min-width: 16px;"></i> <span class="ms-3">Light</span></button></li>
+                <li><button class="dropdown-item" data-bs-theme-value="auto" aria-pressed="false">
+                    <i class="fa-solid fa-circle-half-stroke" style="min-width: 16px;"></i> <span class="ms-3">Auto</span></button></li>
+            </ul>
+        </div>
+        <div class="form-check form-switch form-select-lg pb-0" style="padding-top: 1px;"
+             data-bs-title="Disable/Enable Mouseover Preview." data-bs-placement="bottom" data-bs-toggle="tooltip" data-bs-trigger="hover">
+            <input class="form-check-input" id="popupPreview" type="checkbox" role="switch">
+            <label class="form-check-label visually-hidden" for="popupPreview" aria-describedby="popupPreviewHelp">Popup Preview</label>
+        </div>
+
+        <div class="ms-auto">
+            <a id="always-auth" class="d-none btn btn-sm btn-outline-warning add-auth d-inline-block" role="button"
+               data-bs-title="Update Authentication with Current Site." data-bs-placement="bottom" data-bs-toggle="tooltip" data-bs-trigger="hover">
+                <i class="fa-solid fa-key"></i></a>
+            <a id="pop-in" class="btn btn-sm btn-outline-body d-inline-block d-none" role="button" title="Pop In">
+                <i class="fa-regular fa-window-restore"></i></a>
+            <a id="pop-out" class="btn btn-sm btn-outline-body d-inline-block" role="button" title="Pop Out" data-mobile-add="d-none">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            <button id="side-panel" class="btn btn-sm btn-outline-info d-none" type="button" title="Side Panel" data-mobile-add="d-none">
+                <i class="fa-solid fa-table-columns"></i></button>
+            <a class="btn btn-sm btn-outline-primary" role="button" href="../html/options.html" title="Options">
+                <i class="fa-solid fa-gears"></i></a>
+        </div> <!-- ms-auto -->
+    </div> <!-- d-flex -->
+</div> <!-- container-fluid -->
+
+<hr class="my-0">
+
+<div class="container-fluid px-1 py-0">
+    <div class="mb-1">
+        <div id="site-links" class="d-none btn-group btn-group-sm w-100" role="group" aria-label="Zipline Links">
+            <a role="button" class="btn btn-outline-success" href="" data-location="/dashboard/files/">
+                <i class="fa-regular fa-folder-open me-2"></i> Files</a>
+            <a role="button" class="btn btn-outline-success" href="" data-location="/dashboard/upload/file/">
+                <i class="fa-solid fa-upload me-2"></i> Upload</a>
+            <a role="button" class="btn btn-outline-success" href="" data-location="/dashboard/admin/settings/">
+                <i class="fa-solid fa-gear me-2"></i> Settings</a>
+        </div>
+    </div>
+
+    <a id="auth-button" class="btn btn-lg btn-success w-100 mt-2 d-none add-auth" role="button">
+        <i class="fa-solid fa-key"></i> Auth with Current Site</a>
+
+    <div id="error-alert" class="d-none alert text-center p-1 mt-2 mb-0" role="alert"></div>
+    <div id="auth-alert" class="d-none alert alert-success text-center p-1 my-2" role="alert">
+        <i class="fa-solid fa-lightbulb me-2"></i>
+        To automatically authenticate, visit your Zipline Site, then check back here...
+    </div>
+
+    <table id="files-table" class="d-none table table-striped table-hover table-sm small align-middle mb-0">
+        <caption class="visually-hidden">Recent Uploads</caption>
+        <thead class="visually-hidden"><tr><th>File URL</th></tr></thead>
+        <tbody></tbody>
+        <tfoot class="d-none">
+        <tr><td class="placeholder-glow"><span class="placeholder" style="width: 100%;"></span></td></tr>
+        </tfoot>
+    </table>
+</div> <!-- container-fluid -->
+
+<div id="media-outer" class="d-none position-fixed top-0 p-0 w-100">
+    <img id="media-image" src="../media/loading.gif" alt="" class="d-block img-thumbnail rounded mx-auto mw-100">
+    <div id="media-error" class="d-none d-flex align-items-center justify-content-center">
+        <div class="alert alert-danger text-center d-inline-block" role="alert">
+            <i class="fa-solid fa-triangle-exclamation me-2"></i> Error Loading Image!<br>
+            Inspect Popup for More Details...
+        </div>
+    </div>
+</div> <!-- media-outer -->
+
+<div aria-live="polite" aria-atomic="true" class="">
+    <div id="toast-container" class="toast-container d-flex flex-column-reverse top-0 start-0 p-3"></div>
+</div> <!-- toast-container -->
+
+<div class="d-none clone">
+    <div id="hover-menu" class="hover-menu d-none top-0 end-0 bg-dark-subtle bg-opacity-75 rounded-1 px-1">
+        <a role="button" class="link-danger" title="Delete" data-action="delete">
+            <i class="fa-regular fa-trash-can"></i></a>
+        <a role="button" class="link-secondary copy-raw clip" title="Copy Raw">
+            <i class="fa-solid fa-copy mx-1"></i></a>
+        <a role="button" class="link-body-emphasis copy-link clip" title="Copy Link">
+            <i class="fa-solid fa-copy mx-1"></i></a>
+        <a role="button" class="link-body-emphasis ctx-button" data-bs-toggle="dropdown">
+            <i class="fa-solid fa-bars"></i></a>
+    </div>
+
+    <div class="toast align-items-center border-0 mb-3" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+        <div class="toast-body text-break"></div>
+    </div>
+
+    <input id="ctx-menu-row" type="hidden" value="">
+
+    <ul class="dropdown-menu py-1">
+        <li class="d-none "><a class="dropdown-item clip copy-link">
+            <i class="fa-solid fa-copy link-body-emphasis me-3"></i> Copy Share Link</a></li>
+        <li class="d-none "><a class="dropdown-item clip copy-raw">
+            <i class="fa-regular fa-copy link-body-emphasis me-3"></i> Copy Raw Link</a></li>
+        <li class="d-none "><hr class="dropdown-divider my-1"></li>
+        <li class=""><a class="dropdown-item clip raw" href="">
+            <i class="fa-solid fa-arrow-up-right-from-square link-body-emphasis me-3"></i> Open Raw File</a></li>
+        <li class=""><a class="dropdown-item" data-action="delete">
+            <i class="fa-regular fa-trash-can link-danger me-3"></i> Delete File</a></li>
+        <li><hr class="dropdown-divider my-1"></li>
+        <li class="dropdown-item-text text-center text-break  clip mouse-link py-0"></li>
+        <li class="dropdown-item-text text-center file-icons">
+            <span class="text-body-tertiary view-text me-1">0</span>
+            <i class="fa-solid fa-eye text-body-tertiary me-2"></i>
+            <a data-action="favorite"><i class="fa-solid fa-star mx-2 text-body-tertiary"></i></a>
+            <a class="pass-link" data-action="password"><i class="fa-solid fa-key mx-2 text-body-tertiary"></i></a>
+            <a class="text-decoration-none link-body-emphasis" data-action="expire">
+                <i class="fa-solid fa-hourglass-start ms-2 text-body-tertiary"></i>
+                <span class="expr-text ms-1"></span></a>
+        </li>
+    </ul>
+    <i class="fa-solid fa-hourglass ms-1 d-none"></i>
+    <i class="fa-solid fa-star text-warning-emphasis ms-1 d-none"></i>
+    <i class="fa-solid fa-key text-danger-emphasis ms-1 d-none"></i>
+</div> <!-- d-none -->
+
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+    <div class="modal-body text-center p-2">
+        <p class="mb-1">Are you sure you want to delete this file?</p>
+        <p class="text-break mb-1"><kbd class="file-name"></kbd></p>
+    </div>
+    <div class="modal-footer p-2">
+        <button type="button" class="btn btn-danger me-auto" id="confirm-delete">
+            <i class="fa-regular fa-trash-can me-2"></i> Delete</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close <i class="fa-solid fa-xmark ms-2"></i></button>
+    </div>
+</div> <!-- modal-content -->
+</div> <!-- modal-dialog -->
+</div> <!-- delete-modal -->
+
+<div class="modal fade" id="expire-modal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+    <div class="modal-body p-2">
+        <p class="text-center mb-1">
+            Set the file's expiration. <br>
+            For examples, see
+            <a href="https://github.com/onegreyonewhite/pytimeparse2#pytimeparse2-time-expression-parser" target="_blank" rel="noopener">
+                this README.md</a>.
+        </p>
+        <p class="text-center text-break mb-1"><kbd class="file-name"></kbd></p>
+        <form id="expire-form">
+            <label for="expire-input" class="form-label"><i class="fa-solid fa-hourglass-start me-1"></i> Expiration</label>
+            <input id="expire-input" aria-describedby="expire-input-help" class="form-control" type="text" autocomplete="off">
+            <div class="form-text" id="expire-input-help" >File Expiration (Blank to Disable Expiration).</div>
+        </form>
+    </div>
+    <div class="modal-footer p-2">
+        <button type="submit" form="expire-form" class="btn btn-success me-auto">
+            <i class="fa-regular fa-floppy-disk me-2"></i> Save</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close <i class="fa-solid fa-xmark ms-2"></i></button>
+    </div>
+</div> <!-- modal-content -->
+</div> <!-- modal-dialog -->
+</div> <!-- expire-modal -->
+
+<div class="modal fade" id="password-modal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+    <div class="modal-body p-2">
+        <p class="text-center mb-1">Set the file's Password.</p>
+        <p class="text-center text-break mb-1"><kbd class="file-name"></kbd></p>
+        <form id="password-form">
+            <label for="password-input" class="form-label"><i class="fa-solid fa-key me-1"></i> Password</label>
+            <input id="password-input" aria-describedby="password-input-help" class="form-control" type="text" autocomplete="off">
+            <div class="form-text" id="password-input-help" >File Password (Blank to Disable Password).</div>
+        </form>
+    </div>
+    <div class="modal-footer p-2">
+        <button type="submit" form="password-form" class="btn btn-success me-auto">
+            <i class="fa-regular fa-floppy-disk me-2"></i> Save</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close <i class="fa-solid fa-xmark ms-2"></i></button>
+    </div>
+</div> <!-- modal-content -->
+</div> <!-- modal-dialog -->
+</div> <!-- password-modal -->
+
+<div class="modal fade" id="uppy-modal" tabindex="-1" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+    <div class="modal-body p-2">
+        <div id="uppy" class="my-2"></div>
+    </div>
+</div> <!-- modal-content -->
+</div> <!-- modal-dialog -->
+</div> <!-- uppy-modal -->
+
+<script type="text/javascript" src="../dist/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../dist/bootstrap/bootstrap.bundle.min.js"></script>
+<script type="text/javascript" src="../dist/clipboard/clipboard.min.js"></script>
+<script type="module" src="../js/popup.js"></script>
+
+</body>
+</html>

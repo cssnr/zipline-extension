@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zipline Extension Options</title>
+    <link rel="icon" href="../media/logo16.png" sizes="any">
+    <link rel="stylesheet" type="text/css" href="../dist/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../dist/fontawesome/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/options.css">
+    <script type="text/javascript" src="../js/theme.js"></script>
+</head>
+<body class="h-100">
+
+<video id="bgvid" class="d-none" playsinline autoplay muted loop>
+<!--    <source src="/media/loop.mp4" type="video/mp4">-->
+</video> <!-- video -->
+
+<div class="d-flex align-items-center justify-content-center pt-3 px-1 px-sm-3 h-100">
+<div class="m-auto">
+<div id="options-wrapper" class="rounded rounded-4 p-3 mb-3 w-100">
+
+    <div class="d-flex justify-content-center align-items-center">
+        <img src="../media/logo48.png" class="me-2" height="48" width="48"
+             alt="Zipline Extension" title="Zipline Extension">
+        <h2>Zipline Extension Options</h2>
+    </div>
+    <div class="clearfix"></div>
+    <p class="text-center lead">v<span id="version"></span></p>
+    <div id="table-wrapper" class="rounded rounded-3 p-2 mb-3 d-none">
+        <table id="keyboard-shortcuts" class="table table-sm table-borderless table-hover mb-0">
+            <caption class="visually-hidden">Keyboard Shortcuts</caption>
+            <thead class="visually-hidden"><tr><th>Description</th><th>Shortcut</th></tr></thead>
+            <tbody>
+            <tr class="d-none">
+                <td class="bg-transparent"><i class="fa-regular fa-keyboard me-1"></i> <span class="description"></span></td>
+                <td class="bg-transparent text-end" title="Keyboard Shortcut"><kbd>Unknown</kbd></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <form id="options-form" class="options">
+        <div class="row">
+            <label for="siteUrl" class="form-label"><i class="fa-solid fa-globe me-2"></i> Zipline URL</label>
+            <div class="input-group col-12">
+                <input id="siteUrl" aria-describedby="siteUrlHelp" type="text" class="form-control" autocomplete="off">
+                <button class="btn btn-outline-primary" type="button" data-bs-toggle="tooltip"
+                        data-copy-input="#siteUrl" data-copy-text="Site URL Copied to Clipboard."
+                        data-bs-placement="bottom" data-bs-trigger="hover" data-bs-title="Copy Site URL.">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+            </div>
+            <div class="form-text mb-3" id="siteUrlHelp" >The Full URL to your Zipline server.</div>
+
+            <label for="authToken" class="form-label"><i class="fa-solid fa-key me-2"></i> Auth Token</label>
+            <div class="input-group col-12">
+                <input id="authToken" aria-describedby="authTokenHelp" type="password" class="form-control" autocomplete="off">
+                <button class="btn btn-outline-success" type="button" data-bs-toggle="tooltip" data-show-hide="#authToken"
+                        data-bs-placement="bottom" data-bs-trigger="hover" data-bs-title="Show/Hide Auth Token.">
+                    <i class="fa-regular fa-eye"></i>
+                </button>
+                <button id="authTokenCopy" class="btn btn-outline-primary" type="button"
+                        data-copy-input="#authToken" data-copy-text="Auth Token Copied to Clipboard."
+                        data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-trigger="hover" data-bs-title="Copy Auth Token.">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+            </div>
+            <div class="form-text mb-3" id="authTokenHelp">Token From Zipline Settings.</div>
+        </div>
+
+        <div class="row g-2 mb-2">
+            <div class="col-sm-4 col-12 mb-2">
+                <label for="recentFiles" class="form-label"><i class="fa-solid fa-list-ol me-2"></i> Recent Files</label>
+                <input id="recentFiles" aria-describedby="recentFilesHelp" type="number" class="form-control" autocomplete="off">
+                <div class="form-text" id="recentFilesHelp">Popup Recent Files. <span class="d-inline-block">0 to Disable.</span></div>
+            </div>
+            <div class="col-sm-4 col-12 mb-2" data-mobile-add="d-none">
+                <label for="popupWidth" class="form-label"><i class="fa-solid fa-arrows-left-right-to-line me-2"></i> Popup Width</label>
+                <input id="popupWidth" aria-describedby="popupWidthHelp" type="number" class="form-control" autocomplete="off" step="10">
+                <div class="form-text" id="popupWidthHelp">Popup Width in Pixels. <span class="d-inline-block">320-600.</span></div>
+            </div>
+            <div class="col-sm-4 col-12 mb-2">
+                <label for="popupTimeout" class="form-label"><i class="fa-regular fa-clock me-2"></i> Preview Timeout</label>
+                <input id="popupTimeout" aria-describedby="popupTimeoutHelp" type="number" class="form-control" autocomplete="off">
+                <div class="form-text" id="popupTimeoutHelp">Popup Preview Timeout in Seconds.</div>
+            </div>
+        </div>
+
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input" id="popupPreview" type="checkbox" role="switch">
+            <label class="form-check-label" for="popupPreview" aria-describedby="popupPreviewHelp">
+                Show Preview on Popup
+                <span data-bs-toggle="tooltip" data-bs-title="Display Media Preview on Popup Mouseover.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div>
+
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input" id="popupIcons" type="checkbox" role="switch" data-related="iconOptions">
+            <label class="form-check-label" for="popupIcons" aria-describedby="popupIconsHelp">
+                Show File Icons in Popup
+                <span data-bs-toggle="tooltip" data-bs-title="Show Favorite and Password Icons on Files in Popup.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div> <!-- data-related #iconOptions -->
+        <div id="iconOptions" class="ms-5 mb-2" style="display: none;">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="iconFavorite" value="iconFavorite">
+                <label class="form-check-label" for="iconFavorite">
+                    <i class="fa-solid fa-star text-warning-emphasis"></i>
+                    <span class="visually-hidden">Favorite Icon</span>
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="iconPassword" value="iconPassword">
+                <label class="form-check-label text-danger-emphasis" for="iconPassword">
+                    <i class="fa-solid fa-key"></i>
+                    <span class="visually-hidden">Password Icon</span>
+                </label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="iconExpire" value="iconExpire">
+                <label class="form-check-label" for="iconExpire">
+                    <i class="fa-solid fa-hourglass"></i>
+                    <span class="visually-hidden">Expire Icon</span>
+                </label>
+            </div>
+        </div> <!-- #iconOptions -->
+
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input" id="popupLinks" type="checkbox" role="switch">
+            <label class="form-check-label" for="popupLinks" aria-describedby="popupLinksHelp">
+                Show Zipline Links in Popup
+                <span data-bs-toggle="tooltip" data-bs-title="Show or Hide Zipline Links in Popup.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div>
+
+        <div class="form-check form-switch mb-2" data-mobile-add="d-none">
+            <input class="form-check-input" id="popupSidePanel" type="checkbox" role="switch">
+            <label class="form-check-label" for="popupSidePanel" aria-describedby="popupSidePanelHelp">
+                Show SidePanel Button in Popup
+                <span data-bs-toggle="tooltip" data-bs-title="Display a Side Panel Button in Popup.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div>
+
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input" id="checkAuth" type="checkbox" role="switch">
+            <label class="form-check-label" for="checkAuth" aria-describedby="checkAuthHelp">
+                Always Check for Site Auth
+                <span data-bs-toggle="tooltip" data-bs-title="Always Query Current Site for Auth Credentials.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div>
+
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input" id="deleteConfirm" type="checkbox" role="switch">
+            <label class="form-check-label" for="deleteConfirm" aria-describedby="deleteConfirmHelp">
+                Show Confirmation on Delete
+                <span data-bs-toggle="tooltip" data-bs-title="Show a File Delete Confirmation Dialog.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div>
+
+        <div class="form-check form-switch mb-2" data-mobile-add="d-none">
+            <input class="form-check-input" id="contextMenu" type="checkbox" role="switch" data-related="reloadMenu">
+            <label class="form-check-label" for="contextMenu" aria-describedby="contextMenuHelp">
+                Enable Context Menu
+                <span data-bs-toggle="tooltip" data-bs-title="Show Right Click Context Menu.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div><!-- data-related #reloadMenu -->
+        <div id="reloadMenu" class="ms-5 mb-2" style="display: none;" data-mobile-add="d-none">
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" id="ctxSidePanel" type="checkbox" role="switch">
+                <label class="form-check-label" for="ctxSidePanel" aria-describedby="ctxSidePanelHelp">
+                    Show Open Side Panel
+                    <span data-bs-toggle="tooltip" data-bs-title="Show Side Panel in Menu.">
+                        <i class="fa-solid fa-circle-info ms-1"></i>
+                    </span>
+                </label>
+            </div>
+        </div> <!-- #reloadMenu -->
+
+        <div class="form-check form-switch mb-2">
+            <input class="form-check-input" id="showUpdate" type="checkbox" role="switch">
+            <label class="form-check-label" for="showUpdate" aria-describedby="showUpdateHelp">
+                Show Release Notes on Update
+                <span data-bs-toggle="tooltip" data-bs-title="Show Release Notes on Version Update.">
+                    <i class="fa-solid fa-circle-info ms-1"></i>
+                </span>
+            </label>
+        </div>
+
+        <h5 class="mt-3">
+            Options Page Background
+            <span class="small" data-bs-toggle="tooltip" data-bs-title="Disabled, Random/Custom Picture or Video Looping.">
+                <i class="fa-solid fa-circle-info ms-1"></i>
+            </span>
+        </h5>
+
+        <div class="d-flex flex-column flex-sm-row ms-1 ms-sm-3">
+            <div class="form-check form-check-inline mb-2 mb-sm-0">
+                <input class="form-check-input" type="radio" name="radioBackground" id="bgNone" value="none">
+                <label class="form-check-label" for="bgNone">
+                    <i class="fa-regular fa-square"></i> None
+                </label>
+            </div>
+            <div class="form-check form-check-inline mb-2 mb-sm-0">
+                <input class="form-check-input" type="radio" name="radioBackground" id="bgPicture" value="picture">
+                <label class="form-check-label" for="bgPicture">
+                    <i class="fa-regular fa-image"></i> Picture
+                </label>
+            </div>
+            <div class="form-check form-check-inline mb-2">
+                <input class="form-check-input" type="radio" name="radioBackground" id="bgVideo" value="video">
+                <label class="form-check-label" for="bgVideo">
+                    <i class="fa-solid fa-video"></i> Video
+                </label>
+            </div>
+        </div>
+
+        <div class="ms-0 ms-sm-3">
+            <div id="bgPictureInput" class="input-group d-none">
+                <span class="input-group-text" id="picture-addon" data-bs-toggle="tooltip" data-bs-title="URL to a Web Image or empty for default.">
+                    <i class="fa-solid fa-circle-info"></i></span>
+                <input type="text" class="form-control" placeholder="Background Picture URL" aria-label="Background Picture URL"
+                       id="pictureURL" name="pictureURL" aria-describedby="picture-addon">
+            </div>
+            <div id="bgVideoInput" class="input-group d-none">
+                <span class="input-group-text" id="video-addon" data-bs-toggle="tooltip" data-bs-title="URL to a Web Video or empty for default.">
+                    <i class="fa-solid fa-circle-info"></i></span>
+                <input type="text" class="form-control" placeholder="Background Video URL" aria-label="Background Video URL"
+                       id="videoURL" name="videoURL" aria-describedby="video-addon">
+            </div>
+        </div>
+
+    </form> <!-- options-form -->
+
+    <p class="fst-italic small mt-3">
+        <a id="copy-support" class="link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" href="#0">
+            Copy Support Information</a> for issue reporting.
+    </p>
+
+    <hr class="mt-0">
+
+    <div class="text-center">
+        <a class="link-body-emphasis text-decoration-none" target="_blank" rel="noopener"
+           href="https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme">Get Help</a>
+        <span class="mx-2">&bull;</span>
+        <a class="link-body-emphasis text-decoration-none" target="_blank" rel="noopener"
+           href="https://github.com/cssnr/zipline-extension/issues">Open Issue</a>
+        <span class="mx-2">&bull;</span>
+        <a class="link-body-emphasis text-decoration-none" target="_blank" rel="noopener"
+           href="https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests">Request Feature</a>
+    </div>
+
+</div> <!-- options-wrapper -->
+</div> <!-- m-auto -->
+</div> <!-- d-flex -->
+
+<div aria-live="polite" aria-atomic="true" class="">
+    <div id="toast-container" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+</div> <!-- toast-container -->
+
+<div class="d-none">
+    <div class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="5000">
+        <div class="toast-body"></div>
+    </div>
+</div> <!-- d-none -->
+
+<script type="text/javascript" src="../dist/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../dist/bootstrap/bootstrap.bundle.min.js"></script>
+<script type="module" src="../js/options.js"></script>
+
+</body>
+</html>
