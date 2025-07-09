@@ -57,7 +57,6 @@ async function windowResize() {
 }
 
 const filesTable = document.getElementById('files-table')
-const authAlert = document.getElementById('auth-alert')
 const errorAlert = document.getElementById('error-alert')
 const authButton = document.getElementById('auth-button')
 const alwaysAuth = document.getElementById('always-auth')
@@ -481,7 +480,9 @@ async function authCredentials(event) {
         await chrome.storage.sync.set({ options })
         console.info('Auth Credentials Updated...')
         authButton.classList.add('d-none')
-        authAlert.classList.add('d-none')
+        document
+            .querySelectorAll('.auth-alert')
+            .forEach((el) => el.classList.add('d-none'))
         errorAlert.classList.add('d-none')
         alwaysAuth.classList.add('d-none')
         mediaOuter.classList.add('d-none')
@@ -1015,7 +1016,10 @@ function displayAlert({ message, type = 'warning', auth = false } = {}) {
     errorAlert.classList.add(`alert-${type}`)
     errorAlert.classList.remove('d-none')
     if (auth) {
-        authAlert.classList.remove('d-none')
+        // authAlert.classList.remove('d-none')
+        document
+            .querySelectorAll('.auth-alert')
+            .forEach((el) => el.classList.remove('d-none'))
         authError = true
         // noinspection JSIgnoredPromiseFromCall
         checkSiteAuth()
