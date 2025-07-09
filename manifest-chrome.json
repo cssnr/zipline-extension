@@ -6,5 +6,6 @@
   "side_panel": {
     "default_path": "html/sidepanel.html"
   },
-  "minimum_chrome_version": "109"
+  "minimum_chrome_version": "109",
+  "optional_host_permissions": ["*://*/*"]
 }

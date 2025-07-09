@@ -235,3 +235,111 @@ export function debounce(fn, timeout = 250) {
         timeoutID = setTimeout(() => fn(...args), timeout)
     }
 }
+
+/**
+ * Update DOM with Manifest Details
+ * @function updateManifest
+ */
+export async function updateManifest() {
+    const manifest = chrome.runtime.getManifest()
+    document.querySelectorAll('.version').forEach((el) => {
+        el.textContent = manifest.version
+    })
+    document.querySelectorAll('[href="homepage_url"]').forEach((el) => {
+        el.href = manifest.homepage_url
+    })
+    // document.querySelectorAll('[href="version_url"]').forEach((el) => {
+    //     el.href = `${githubURL}/releases/tag/${manifest.version}`
+    // })
+}
+
+/**
+ * Grant Permissions Click Callback
+ * @function grantPerms
+ * @param {MouseEvent} event
+ * @param {Boolean} [close]
+ */
+export async function grantPerms(event, close = false) {
+    console.debug('grantPerms:', event)
+    // noinspection ES6MissingAwait
+    requestPerms()
+    if (close) {
+        window.close()
+    }
+}
+
+/**
+ * Request Host Permissions
+ * @function requestPerms
+ * @return {Promise<Boolean>}
+ */
+export async function requestPerms() {
+    return await chrome.permissions.request({
+        origins: ['*://*/*'],
+    })
+}
+
+/**
+ * Check Host Permissions
+ * @function checkPerms
+ * @return {Promise<Boolean>}
+ */
+export async function checkPerms() {
+    const hasPerms = await chrome.permissions.contains({
+        origins: ['*://*/*'],
+    })
+    console.debug('checkPerms:', hasPerms)
+    // Firefox still uses DOM Based Background Scripts
+    if (typeof document === 'undefined') {
+        return hasPerms
+    }
+    const hasPermsEl = document.querySelectorAll('.has-perms')
+    const grantPermsEl = document.querySelectorAll('.grant-perms')
+    if (hasPerms) {
+        hasPermsEl.forEach((el) => el.classList.remove('d-none'))
+        grantPermsEl.forEach((el) => el.classList.add('d-none'))
+    } else {
+        grantPermsEl.forEach((el) => el.classList.remove('d-none'))
+        hasPermsEl.forEach((el) => el.classList.add('d-none'))
+    }
+    return hasPerms
+}
+
+/**
+ * Revoke Permissions Click Callback
+ * NOTE: Chrome does not allow revoking required permissions with this method
+ * @function revokePerms
+ * @param {Event} event
+ */
+export async function revokePerms(event) {
+    console.debug('revokePerms:', event)
+    const permissions = await chrome.permissions.getAll()
+    console.debug('permissions:', permissions)
+    try {
+        await chrome.permissions.remove({
+            origins: permissions.origins,
+        })
+        await checkPerms()
+    } catch (e) {
+        console.log(e)
+        showToast(e.message, 'danger')
+    }
+}
+
+/**
+ * Permissions On Added Callback
+ * @param permissions
+ */
+export async function onAdded(permissions) {
+    console.debug('onAdded', permissions)
+    await checkPerms()
+}
+
+/**
+ * Permissions On Added Callback
+ * @param permissions
+ */
+export async function onRemoved(permissions) {
+    console.debug('onRemoved', permissions)
+    await checkPerms()
+}

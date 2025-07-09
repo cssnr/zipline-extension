@@ -1,10 +1,27 @@
 // JS for options.html
 
-import { showToast, updatePlatform } from './exports.js'
+import {
+    checkPerms,
+    grantPerms,
+    onAdded,
+    onRemoved,
+    revokePerms,
+    showToast,
+    updatePlatform,
+} from './exports.js'
 
 chrome.storage.onChanged.addListener(onChanged)
+chrome.permissions.onAdded.addListener(onAdded)
+chrome.permissions.onRemoved.addListener(onRemoved)
+
 document.addEventListener('DOMContentLoaded', initOptions)
 document.getElementById('copy-support').addEventListener('click', copySupport)
+document
+    .querySelectorAll('.revoke-permissions')
+    .forEach((el) => el.addEventListener('click', revokePerms))
+document
+    .querySelectorAll('.grant-permissions')
+    .forEach((el) => el.addEventListener('click', grantPerms))
 document
     .querySelectorAll('#options-form input')
     .forEach((el) => el.addEventListener('change', saveOptions))
@@ -33,6 +50,9 @@ const bgVideoInput = document.getElementById('bgVideoInput')
  */
 async function initOptions() {
     console.debug('initOptions')
+
+    // noinspection ES6MissingAwait
+    checkPerms()
 
     document.getElementById('version').textContent =
         chrome.runtime.getManifest().version
