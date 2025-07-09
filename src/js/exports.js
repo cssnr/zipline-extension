@@ -47,10 +47,21 @@ export async function linkClick(event, close = false) {
  * @function openPopupPanel
  */
 export async function openPopupPanel() {
-    try {
-        await chrome.action.openPopup()
-    } catch {
-        await openExtPanel()
+    // noinspection JSUnresolvedReference
+    if (typeof browser !== 'undefined') {
+        try {
+            await chrome.action.openPopup()
+        } catch {
+            await openExtPanel()
+        }
+    } else {
+        chrome.storage.local.get(['popupView']).then((items) => {
+            if (items.popupView !== 'popup') {
+                openExtPanel()
+            } else {
+                chrome.action.openPopup()
+            }
+        })
     }
 }
 

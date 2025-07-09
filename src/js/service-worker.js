@@ -109,6 +109,7 @@ function setUninstallURL() {
     // console.debug(`setUninstallURL: ${url.href}`)
 
     // Note: If only setting to a static url, this function is not required.
+    const githubURL = 'https://github.com/cssnr/zipline-extension'
     // noinspection JSIgnoredPromiseFromCall
     chrome.runtime.setUninstallURL(`${githubURL}/issues`)
     console.debug(`setUninstallURL: ${githubURL}/issues`)
