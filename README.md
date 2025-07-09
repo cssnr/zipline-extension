@@ -20,17 +20,16 @@ and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon 
 a [Zipline v4](https://github.com/diced/zipline) server to upload and shorten urls,
 view and edit files, and much more...
 
-> [!IMPORTANT]  
-> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
-
-## Table of Contents
-
 - [Install](#install)
 - [Features](#features)
   - [Known Issues](#known-issues)
 - [Configure](#configure)
 - [Setup](#setup)
 - [Support](#support)
+- [Contributing](#contributing)
+
+> [!IMPORTANT]  
+> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
 
 # Install
 
