@@ -42,7 +42,9 @@ jobs:
           npm install
 
       - name: "Test"
-        id: test
+        env:
+          ZIPLINE_URL: ${{ secrets.DF_URL }}
+          ZIPLINE_TOKEN: ${{ secrets.DF_TOKEN }}
         run: |
           npm run test
 

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "version": "0.0.1",
   "name": "Zipline Extension",
-  "description": "Zipline Extension Web Extension.",
+  "description": "Zipline Web Extension to Upload, View and Edit files from a Zipline v4 Server.",
   "homepage_url": "https://github.com/cssnr/zipline-extension",
   "author": "Shane",
   "commands": {

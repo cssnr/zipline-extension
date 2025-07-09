@@ -15,23 +15,22 @@
 
 # Zipline Web Extension
 
-[Chrome](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej) Web Extension and
-[Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for
-[Zipline v4](https://github.com/diced/zipline) to view recent uploads, shorten URLs,
-and upload any Image, Video or Audio files with right click.
+A [Chrome](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej) Web Extension
+and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for
+a [Zipline v4](https://github.com/diced/zipline) server to upload and shorten urls,
+view and edit files, and much more...
 
 > [!IMPORTANT]  
-> This Web Extension is designed to work with [Zipline v4](https://github.com/diced/zipline).
+> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
 
 ## Table of Contents
 
 - [Install](#install)
 - [Features](#features)
+  - [Known Issues](#known-issues)
 - [Configure](#configure)
 - [Setup](#setup)
 - [Support](#support)
-- [Building](#building)
-- [Development](#development)
 
 # Install
 
@@ -53,6 +52,10 @@ Mobile browser support available for
 [Firefox](https://addons.mozilla.org/addon/zipline-extension) and
 [Kiwi](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej).
 
+[![QR Code Firefox](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/qr-code-firefox.png)](https://addons.mozilla.org/addon/zipline-extension)
+
+[![Screenshot](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/screenshot.jpg)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+
 ## Features
 
 - View Recent Uploads on Popup/Popout.
@@ -69,9 +72,33 @@ Mobile browser support available for
 > **Don't see your feature here?**
 > Request one on the [Feature Request Discussion](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests).
 
+### Known Issues
+
+<details><summary>Deleting and Editing files requires a CORS modification</summary>
+
+Zipline is missing the `DELETE` and `PATCH` method in its OPTIONS response.
+These methods are used to delete and edit a file respectively.
+To fix this, add the following to your nginx configuration (or similar if not nginx).
+
+```plain
+server {
+    location /api {
+        if ($request_method = 'OPTIONS') {
+            add_header 'Access-Control-Allow-Methods' 'GET, HEAD, POST, DELETE, PATCH' always;
+        }
+    }
+}
+```
+
+</details>
+
+> [!TIP]  
+> **Don't see your issue here?**
+> Submit a new [Issue](https://github.com/cssnr/zipline-extension/issues).
+
 ## Configure
 
-You can pin the Addon by clicking the `Puzzle Piece`, find the `Zipline icon`, then;  
+You can pin the Addon by clicking the `Puzzle Piece`, find the `Zipline Extension icon`, then;  
 **Firefox**, click the `Settings Wheel` and `Pin to Toolbar`.  
 **Chrome**, click the `Pin` icon.
 
@@ -88,9 +115,9 @@ The addon should now be configured to work with your Zipline instance.
 You can now click the Zipline icon to view your recent uploads or open Options.  
 Right-click on any Image, Video, Audio, or URL upload to Zipline or Shorten URL.
 
-Alternatively, you can open the Options page and add your URL and Token.
+Alternatively, you can open the Options page and add your URL and Token manually.
 
-# Support
+## Support
 
 For help using the web extension, utilize any these resources:
 
