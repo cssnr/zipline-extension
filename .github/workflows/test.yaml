@@ -43,8 +43,8 @@ jobs:
 
       - name: "Test"
         env:
-          ZIPLINE_URL: ${{ secrets.DF_URL }}
-          ZIPLINE_TOKEN: ${{ secrets.DF_TOKEN }}
+          ZIPLINE_URL: ${{ secrets.ZIPLINE_URL }}
+          ZIPLINE_TOKEN: ${{ secrets.ZIPLINE_TOKEN }}
         run: |
           npm run test
 

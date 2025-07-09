@@ -137,12 +137,17 @@ Note: When providing anonymous feedback there is no way to follow up and get mor
 
 # Contributing
 
+For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 
-For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](CONTRIBUTING.md).
+More **Zipline** Products:
+
+- [Zipline Android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme) - Native Android Application for Zipline
+- [Zipline CLI](https://github.com/cssnr/zipline-cli?tab=readme-ov-file#readme) - CLI Interface for Zipline
 
 Additionally, you can star or provide a 5-star rating on other Web Extensions I have created and published:
 
@@ -151,6 +156,7 @@ Additionally, you can star or provide a 5-star rating on other Web Extensions I 
 - [Auto Auth](https://github.com/cssnr/auto-auth?tab=readme-ov-file#readme)
 - [Cache Cleaner](https://github.com/cssnr/cache-cleaner?tab=readme-ov-file#readme)
 - [HLS Video Downloader](https://github.com/cssnr/hls-video-downloader?tab=readme-ov-file#readme)
+- [Zipline Extension](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
 - [Obtainium Extension](https://github.com/cssnr/obtainium-extension?tab=readme-ov-file#readme)
 - [SMWC Web Extension](https://github.com/cssnr/smwc-web-extension?tab=readme-ov-file#readme)
 - [PlayDrift Extension](https://github.com/cssnr/playdrift-extension?tab=readme-ov-file#readme)
