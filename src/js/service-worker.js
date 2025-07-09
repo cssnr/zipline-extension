@@ -58,15 +58,17 @@ async function onInstalled(details) {
     const manifest = chrome.runtime.getManifest()
     if (details.reason === 'install') {
         // noinspection ES6MissingAwait
-        chrome.runtime.openOptionsPage()
-        // await chrome.tabs.create({ active: false, url: installURL })
+        await chrome.runtime.openOptionsPage()
+        const url = chrome.runtime.getURL('/html/oninstall.html')
+        console.log('oninstall url:', url)
+        await chrome.tabs.create({ active: true, url })
     } else if (details.reason === 'update' && options.showUpdate) {
         if (manifest.version !== details.previousVersion) {
             let { internal } = await chrome.storage.sync.get(['internal'])
             internal = internal || {}
             if (internal?.lastShownUpdate !== manifest.version) {
                 const url = `${githubURL}/releases/tag/${manifest.version}`
-                console.log(`url: ${url}`)
+                console.log('update url:', url)
                 await chrome.tabs.create({ active: false, url })
                 internal.lastShownUpdate = manifest.version
                 console.log('storage.sync: internal:', internal)

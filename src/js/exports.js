@@ -1,6 +1,60 @@
 // JS Exports
 
 /**
+ * Link Click Callback
+ * Note: Firefox popup requires a call to window.close()
+ * @function linkClick
+ * @param {MouseEvent} event
+ * @param {Boolean} [close]
+ */
+export async function linkClick(event, close = false) {
+    console.debug('linkClick:', close, event)
+    event.preventDefault()
+    const target = event.currentTarget || event.target
+    console.debug('target:', target)
+    const { popupView } = await chrome.storage.local.get(['popupView'])
+    if (popupView !== 'popup') {
+        close = false
+    }
+    console.debug('close:', close)
+    const href = target.getAttribute('href').replace(/^\.+/g, '')
+    console.debug('href:', href)
+    let url
+    if (href.startsWith('#')) {
+        console.debug('return on anchor link')
+        return
+    } else if (href.endsWith('html/options.html')) {
+        await chrome.runtime.openOptionsPage()
+        if (close) window.close()
+        return
+    } else if (href.endsWith('html/sidepanel.html')) {
+        openSidePanel()
+        if (close) window.close()
+        return
+    } else if (href.startsWith('http')) {
+        url = href
+    } else {
+        url = chrome.runtime.getURL(href)
+    }
+    console.debug('url:', url)
+    // await activateOrOpen(url)
+    await chrome.tabs.create({ active: true, url })
+    if (close) window.close()
+}
+
+/**
+ * The New Quick and Dirty Open Popup or Panel Method
+ * @function openPopupPanel
+ */
+export async function openPopupPanel() {
+    try {
+        await chrome.action.openPopup()
+    } catch {
+        await openExtPanel()
+    }
+}
+
+/**
  * Open Popup Event Handler
  * @function openPopup
  * @param {Event} [event]
