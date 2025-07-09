@@ -1,6 +1,6 @@
 // JS for sidepanel.html
 
-import { showToast } from './exports.js'
+// import { showToast } from './exports.js'
 
 import {
     Uppy,
