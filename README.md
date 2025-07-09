@@ -1,6 +1,6 @@
-[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/abpbiefojfkekhkjnpakpekkpeibnjej?logo=google&logoColor=white&label=google%20users)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
+[![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/gkkloiijbkgkbmgckfefigkjckhdikkd?logo=google&logoColor=white&label=google%20users)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Mozilla Add-on Users](https://img.shields.io/amo/users/zipline-extension?logo=mozilla&label=mozilla%20users)](https://addons.mozilla.org/addon/zipline-extension)
-[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/abpbiefojfkekhkjnpakpekkpeibnjej?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
+[![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/gkkloiijbkgkbmgckfefigkjckhdikkd?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/zipline-extension?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/zipline-extension)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/zipline-extension?logo=github)](https://github.com/cssnr/zipline-extension/releases/latest)
 [![Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=github&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
@@ -15,15 +15,10 @@
 
 # Zipline Web Extension
 
-A [Chrome](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej) Web Extension
+A [Chrome](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd) Web Extension
 and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for
 a [Zipline v4](https://github.com/diced/zipline) server to upload and shorten urls,
 view and edit files, and much more...
-
-> [!IMPORTANT]  
-> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
-
-## Table of Contents
 
 - [Install](#install)
 - [Features](#features)
@@ -31,30 +26,32 @@ view and edit files, and much more...
 - [Configure](#configure)
 - [Setup](#setup)
 - [Support](#support)
+- [Contributing](#contributing)
 
 # Install
 
-- [Google Chrome Web Store](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
+- [Google Chrome Web Store](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 - [Mozilla Firefox Add-ons](https://addons.mozilla.org/addon/zipline-extension)
 
-[![Chrome](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chrome_48.png)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
+[![Chrome](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chrome_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Firefox](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/firefox_48.png)](https://addons.mozilla.org/addon/zipline-extension)
-[![Edge](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/edge_48.png)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
-[![Chromium](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chromium_48.png)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
-[![Brave](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/brave_48.png)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
-[![Opera](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/opera_48.png)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
-[![Kiwi](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/kiwi_48.png)](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej)
+[![Edge](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/edge_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
+[![Chromium](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chromium_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
+[![Brave](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/brave_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
+[![Opera](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/opera_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 
 All Chromium Based Browsers can install the extension from the
-[Chrome Web Store](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej).
+[Chrome Web Store](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd).
 
 Mobile browser support available for
-[Firefox](https://addons.mozilla.org/addon/zipline-extension) and
-[Kiwi](https://chromewebstore.google.com/detail/zipline-extension/abpbiefojfkekhkjnpakpekkpeibnjej).
+[Firefox](https://addons.mozilla.org/addon/zipline-extension).
 
 [![QR Code Firefox](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/qr-code-firefox.png)](https://addons.mozilla.org/addon/zipline-extension)
 
 [![Screenshot](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/screenshot.jpg)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+
+> [!IMPORTANT]  
+> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
 
 ## Features
 
