@@ -88,6 +88,20 @@
             </div>
         </div>
 
+        <div class="d-none grant-perms my-3">
+            <button class="btn btn-sm btn-outline-success me-2 grant-permissions" type="button"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                    data-bs-title="Allow Uploading Files with Context Menu.">
+                <i class="fa-solid fa-check-double me-1"></i> Grant Host Permissions</button>
+            <span class="text-center small d-inline-block"><a href="../html/permissions.html">More about Permissions</a></span>
+        </div>
+        <div class="d-none has-perms my-3">
+            <button class="link-danger btn btn-sm btn-link revoke-permissions" type="button"
+                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
+                    data-bs-title="No Longer Allow Uploading Files with Context Menu.">
+                Remove Host Permissions</button>
+        </div>
+
         <div class="form-check form-switch mb-2">
             <input class="form-check-input" id="popupPreview" type="checkbox" role="switch">
             <label class="form-check-label" for="popupPreview" aria-describedby="popupPreviewHelp">
