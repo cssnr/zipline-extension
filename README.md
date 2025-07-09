@@ -28,9 +28,6 @@ view and edit files, and much more...
 - [Support](#support)
 - [Contributing](#contributing)
 
-> [!IMPORTANT]  
-> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
-
 # Install
 
 - [Google Chrome Web Store](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
@@ -42,18 +39,19 @@ view and edit files, and much more...
 [![Chromium](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/chromium_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Brave](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/brave_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Opera](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/opera_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
-[![Kiwi](https://raw.githubusercontent.com/smashedr/logo-icons/master/browsers/kiwi_48.png)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 
 All Chromium Based Browsers can install the extension from the
 [Chrome Web Store](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd).
 
 Mobile browser support available for
-[Firefox](https://addons.mozilla.org/addon/zipline-extension) and
-[Kiwi](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd).
+[Firefox](https://addons.mozilla.org/addon/zipline-extension).
 
 [![QR Code Firefox](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/qr-code-firefox.png)](https://addons.mozilla.org/addon/zipline-extension)
 
 [![Screenshot](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/screenshot.jpg)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+
+> [!IMPORTANT]  
+> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
 
 ## Features
 
