@@ -73,9 +73,13 @@
         <i class="fa-solid fa-key"></i> Auth with Current Site</a>
 
     <div id="error-alert" class="d-none alert text-center p-1 mt-2 mb-0" role="alert"></div>
-    <div id="auth-alert" class="d-none alert alert-success text-center p-1 my-2" role="alert">
+    <div class="d-none alert alert-success text-center auth-alert p-1 my-2" role="alert">
         <i class="fa-solid fa-lightbulb me-2"></i>
         To automatically authenticate, visit your Zipline Site, then check back here...
+    </div>
+    <div class="d-none alert alert-warning text-center auth-alert p-1 my-2" role="alert">
+        <i class="fa-classic fa-solid fa-triangle-exclamation me-2"></i>
+        Currently this only works when the panel is Popped In to avoid needing host permissions.
     </div>
 
     <table id="files-table" class="d-none table table-striped table-hover table-sm small align-middle mb-0">
