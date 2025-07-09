@@ -234,10 +234,8 @@ function onChanged(changes, namespace) {
  * On Message Callback
  * @function onMessage
  * @param {Object} message
- * @param {chrome.runtime.MessageSender} sender
- * @param {function} sendResponse
  */
-function onMessage(message, sender, sendResponse) {
+function onMessage(message) {
     console.debug('onMessage:', message)
     if (message === 'createContextMenus') {
         chrome.storage.sync.get(['options'], (items) => {
