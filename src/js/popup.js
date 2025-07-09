@@ -2,6 +2,7 @@
 
 import {
     debounce,
+    linkClick,
     openExtPanel,
     openPopup,
     openSidePanel,
@@ -25,9 +26,10 @@ document
 document
     .getElementById('confirm-delete')
     .addEventListener('click', deleteConfirm)
+// noinspection JSCheckFunctionSignatures
 document
     .querySelectorAll('a[href]')
-    .forEach((el) => el.addEventListener('click', linkClick))
+    .forEach((el) => el.addEventListener('click', (e) => linkClick(e, true)))
 document
     .querySelectorAll('input')
     .forEach((el) => el.addEventListener('change', saveOptions))
@@ -259,11 +261,6 @@ async function initPopup(event) /* NOSONAR */ {
         .querySelectorAll('[data-action]')
         .forEach((el) => el.addEventListener('click', ctxMenu))
 
-    // File Links are re-generated, eventListener re-addd
-    document
-        .querySelectorAll('a[href]')
-        .forEach((el) => el.addEventListener('click', linkClick))
-
     // Re-init clipboardJS after updateTable
     // noinspection TypeScriptUMDGlobal
     new ClipboardJS('.clip') // NOSONAR
@@ -360,50 +357,50 @@ function initUppy(options) {
 //     }
 // }
 
-/**
- * Link Click Callback
- * Note: Firefox popup requires a call to window.close()
- * @function linkClick
- * @param {MouseEvent} event
- * @param {Boolean} [close]
- */
-export async function linkClick(event, close = true) {
-    console.debug('linkClick:', event)
-    event.preventDefault()
-    const target = event.currentTarget || event.target
-    console.debug('target:', target)
-    const { popupView } = await chrome.storage.local.get(['popupView'])
-    if (popupView !== 'popup') {
-        close = false
-    }
-    console.debug('close:', close)
-    const href = target.getAttribute('href').replace(/^\.+/g, '')
-    console.debug('href:', href)
-    let url
-    if (href.startsWith('#')) {
-        console.debug('return on anchor link')
-        return
-    } else if (href.endsWith('html/options.html')) {
-        await chrome.runtime.openOptionsPage()
-        if (close) window.close()
-        return
-    } else if (href.endsWith('html/sidepanel.html')) {
-        openSidePanel()
-        if (close) window.close()
-        return
-        // } else if (href.endsWith('html/panel.html')) {
-        //     await openExtPanel()
-        //     if (close) window.close()
-        //     return
-    } else if (href.startsWith('http')) {
-        url = href
-    } else {
-        url = chrome.runtime.getURL(href)
-    }
-    console.debug('url:', url)
-    await chrome.tabs.create({ active: true, url })
-    if (close) window.close()
-}
+// /**
+//  * Link Click Callback
+//  * Note: Firefox popup requires a call to window.close()
+//  * @function linkClick
+//  * @param {MouseEvent} event
+//  * @param {Boolean} [close]
+//  */
+// export async function linkClick(event, close = true) {
+//     console.debug('linkClick:', event)
+//     event.preventDefault()
+//     const target = event.currentTarget || event.target
+//     console.debug('target:', target)
+//     const { popupView } = await chrome.storage.local.get(['popupView'])
+//     if (popupView !== 'popup') {
+//         close = false
+//     }
+//     console.debug('close:', close)
+//     const href = target.getAttribute('href').replace(/^\.+/g, '')
+//     console.debug('href:', href)
+//     let url
+//     if (href.startsWith('#')) {
+//         console.debug('return on anchor link')
+//         return
+//     } else if (href.endsWith('html/options.html')) {
+//         await chrome.runtime.openOptionsPage()
+//         if (close) window.close()
+//         return
+//     } else if (href.endsWith('html/sidepanel.html')) {
+//         openSidePanel()
+//         if (close) window.close()
+//         return
+//         // } else if (href.endsWith('html/panel.html')) {
+//         //     await openExtPanel()
+//         //     if (close) window.close()
+//         //     return
+//     } else if (href.startsWith('http')) {
+//         url = href
+//     } else {
+//         url = chrome.runtime.getURL(href)
+//     }
+//     console.debug('url:', url)
+//     await chrome.tabs.create({ active: true, url })
+//     if (close) window.close()
+// }
 
 /**
  * On Message Callback
@@ -608,6 +605,7 @@ function updateTable(data, options) /* NOSONAR */ {
         link.dataset.name = name
         link.dataset.row = i.toString()
         // link.dataset.thumb = thumbURL?.href || rawURL.href
+        link.addEventListener('click', (e) => linkClick(e, true))
 
         // Cell: 1
         const cell1 = row.cells[0]
@@ -829,7 +827,9 @@ async function ctxMenu(event) {
             file.name
         // expireModal.show() // TODO: Refactor as Original Name Moda;
     } else if (action === 'password') {
-        passwordInput.value = file.password
+        if (typeof file.password === 'string') {
+            passwordInput.value = file.password
+        }
         document.querySelector('#password-modal .file-name').textContent =
             file.name
         passwordModal.show()
@@ -857,7 +857,7 @@ async function toggleFavorite() {
         Object.assign(fileData[ctxMenuRow.value], json)
         const ctx = document.getElementById(`ctx-${ctxMenuRow.value}`)
         // console.debug('ctx:', ctx)
-        await updateFileIcons(json)
+        await updateFileIcons(fileData[ctxMenuRow.value])
         if (json.favorite) {
             enableEl(ctx, '.fa-star', 'text-warning-emphasis')
         } else {
@@ -898,10 +898,10 @@ async function passwordForm(event) {
         const ctx = document.getElementById(`ctx-${ctxMenuRow.value}`)
         // console.debug('ctx:', ctx)
         // fileData[ctxMenuRow.value] = json
-        json.password = !!password
+        json.password = password
         Object.assign(fileData[ctxMenuRow.value], json)
-        await updateContextMenu(ctx, json)
-        await updateFileIcons(json)
+        await updateContextMenu(ctx, fileData[ctxMenuRow.value])
+        await updateFileIcons(fileData[ctxMenuRow.value])
         passwordModal.hide()
     } else {
         console.info(`Password Error: "${password}", response:`, response)
