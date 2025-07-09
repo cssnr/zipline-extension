@@ -137,12 +137,17 @@ Note: When providing anonymous feedback there is no way to follow up and get mor
 
 # Contributing
 
+For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](CONTRIBUTING.md).
+
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 
-For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](CONTRIBUTING.md).
+More **Zipline** Products:
+
+- [Zipline Android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme)
+- [Zipline CLI](https://github.com/cssnr/zipline-cli?tab=readme-ov-file#readme)
 
 Additionally, you can star or provide a 5-star rating on other Web Extensions I have created and published:
 
