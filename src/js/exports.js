@@ -31,15 +31,44 @@ export async function linkClick(event, close = false) {
         openSidePanel()
         if (close) window.close()
         return
+        // } else if (href.endsWith('html/popup.html')) {
+        //     console.debug('%c openPopupPanel()', 'color: Yellow')
+        //     await openPopupPanel()
+        //     if (close) window.close()
+        //     return
     } else if (href.startsWith('http')) {
         url = href
     } else {
         url = chrome.runtime.getURL(href)
     }
     console.debug('url:', url)
-    // await activateOrOpen(url)
-    await chrome.tabs.create({ active: true, url })
+    await activateOrOpen(url)
     if (close) window.close()
+}
+
+/**
+ * Activate or Open Tab from URL
+ * @function activateOrOpen
+ * @param {String} url
+ * @param {Boolean} [open]
+ * @return {Promise<chrome.tabs.Tab>}
+ */
+export async function activateOrOpen(url, open = true) {
+    console.debug('activateOrOpen:', url, open)
+    // Note: To Get Tab from Tabs (requires host permissions or tabs)
+    const tabs = await chrome.tabs.query({ currentWindow: true })
+    console.debug('tabs:', tabs)
+    for (const tab of tabs) {
+        if (tab.url === url) {
+            console.debug('%cTab found, activating:', 'color: Lime', tab)
+            return await chrome.tabs.update(tab.id, { active: true })
+        }
+    }
+    if (open) {
+        console.debug('%cTab not found, opening url:', 'color: Yellow', url)
+        return await chrome.tabs.create({ active: true, url })
+    }
+    console.warn('tab not found and open not set!')
 }
 
 /**

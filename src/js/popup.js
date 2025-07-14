@@ -154,7 +154,7 @@ async function initPopup(event) /* NOSONAR */ {
     // titleLink.href = manifest.homepage_url
     if (options.siteUrl) {
         imgLink.title = options.siteUrl
-        imgLink.href = options.siteUrl
+        imgLink.href = `${options.siteUrl}/dashboard`
     }
 
     // Ensure authError is set to false
