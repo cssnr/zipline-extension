@@ -16,9 +16,14 @@
 # Zipline Web Extension
 
 A [Chrome](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd) Web Extension
-and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for
-a [Zipline v4](https://github.com/diced/zipline) server to upload and shorten urls,
-view and edit files, and much more...
+and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for a
+self-hosted [Zipline v4 Server](https://github.com/diced/zipline) to upload files, shorten urls,
+view and edit uploaded files, and much more...
+
+This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
+Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
+
+We are also developing a native [Zipline Upload Android Application](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
 
 - [Install](#install)
 - [Features](#features)
@@ -56,38 +61,26 @@ Mobile browser support available for
 ## Features
 
 - View Recent Uploads on Popup/Popout.
+  - Auto Preview on Mouseover Links.
+  - Including Edit, Delete, Copy, and More...
+  - Customize Icons, Width and Number of Files.
 - Drag and Drop Upload from Popup and Side Panel.
 - Right Click any Image, Video, or Audio to Upload.
-- Right Click any URL to Shorten.
-- Preview Popup Images on Hover.
-- Set Favorite, Password, and Expiration. **(Requires CORS)**
-- Customize Popup Icons, Width and Number of Files.
-- Automatically Authenticate with Zipline.
+- Right Click any URL to Create a Short URL.
+- Automatically Authenticate with your Zipline Server.
 - Automatic Dark/Light Mode based on Browser Settings.
 
 > [!TIP]  
 > **Don't see your feature here?**
 > Request one on the [Feature Request Discussion](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests).
 
+### Planned
+
+- Overhaul File List w/ Gallery
+- Add File List to Side Panel
+- Add Upload Text to Selection
+
 ### Known Issues
-
-<details><summary>Deleting and Editing files requires a CORS modification</summary>
-
-Zipline is missing the `DELETE` and `PATCH` method in its OPTIONS response.
-These methods are used to delete and edit a file respectively.
-To fix this, add the following to your nginx configuration (or similar if not nginx).
-
-```plain
-server {
-    location /api {
-        if ($request_method = 'OPTIONS') {
-            add_header 'Access-Control-Allow-Methods' 'GET, HEAD, POST, DELETE, PATCH' always;
-        }
-    }
-}
-```
-
-</details>
 
 > [!TIP]  
 > **Don't see your issue here?**
