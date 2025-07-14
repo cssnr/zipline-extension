@@ -71,13 +71,11 @@ Mobile browser support available for
 
 ### Planned
 
+- Overhaul File List
 - Add File List to Side Panel
 - Add Upload Text to Selection
 
 ### Known Issues
-
-- Editing or Deleting files via the Popup requires Host Permissions.
-  - Zipline is missing the `DELETE` and `PATCH` method in its OPTIONS response.
 
 > [!TIP]  
 > **Don't see your issue here?**
