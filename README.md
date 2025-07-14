@@ -60,7 +60,7 @@ Mobile browser support available for
 - Right Click any Image, Video, or Audio to Upload.
 - Right Click any URL to Shorten.
 - Preview Popup Images on Hover.
-- Set Favorite, Password, and Expiration. **(Requires CORS)**
+- Set Favorite, Password, and Expiration.
 - Customize Popup Icons, Width and Number of Files.
 - Automatically Authenticate with Zipline.
 - Automatic Dark/Light Mode based on Browser Settings.
@@ -69,25 +69,15 @@ Mobile browser support available for
 > **Don't see your feature here?**
 > Request one on the [Feature Request Discussion](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests).
 
+### Planned
+
+- Add File List to Side Panel
+- Add Upload Text to Selection
+
 ### Known Issues
 
-<details><summary>Deleting and Editing files requires a CORS modification</summary>
-
-Zipline is missing the `DELETE` and `PATCH` method in its OPTIONS response.
-These methods are used to delete and edit a file respectively.
-To fix this, add the following to your nginx configuration (or similar if not nginx).
-
-```plain
-server {
-    location /api {
-        if ($request_method = 'OPTIONS') {
-            add_header 'Access-Control-Allow-Methods' 'GET, HEAD, POST, DELETE, PATCH' always;
-        }
-    }
-}
-```
-
-</details>
+- Editing or Deleting files via the Popup requires Host Permissions.
+  - Zipline is missing the `DELETE` and `PATCH` method in its OPTIONS response.
 
 > [!TIP]  
 > **Don't see your issue here?**

@@ -23,12 +23,15 @@
                 </div>
 
                 <div>
-                    <h2>Uploading Files</h2>
-                    <p>
-                        To upload files vai the right-click context menu, some sites will require host permissions.
-                        This permission can be granted and removed at any time from the
-                        <a href="../html/options.html">options page</a>.
-                    </p>
+                    <h2>Extra Permissions</h2>
+                    <ul>
+                        <li><b>Uploading Files</b></li>
+                    </ul>
+                    <p>To upload files via the right-click context menu, all sites that enforce CORS require host permissions to bypass.</p>
+                    <ul>
+                        <li><b>Editing Files</b></li>
+                    </ul>
+                    <p>To edit or delete files via the Popup host permissions are needed to bypass CORS for PATCH and DELETE.</p>
                     <div class="d-none grant-perms my-3">
                         <button class="btn btn-sm btn-outline-success me-2 grant-permissions" type="button"
                                 data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
@@ -42,6 +45,8 @@
                                 data-bs-title="No Longer Allow Uploading Files with Context Menu.">
                             Remove Host Permissions</button>
                     </div>
+
+                    <p>Permissions can be granted/removed at any time from the <a href="../html/options.html">options page</a>.</p>
 
                     <h2>Automatic Setup</h2>
                     <ol>
