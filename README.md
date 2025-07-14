@@ -20,7 +20,7 @@ and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon 
 self-hosted [Zipline v4 Server](https://github.com/diced/zipline) to upload files, shorten urls,
 view and edit uploaded files, and much more...
 
-This web extension is in active development. Expect major changes in future releases.
+This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
 Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
 
 We are also developing a native [Zipline Upload Android Application](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
