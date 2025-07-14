@@ -154,4 +154,10 @@ Additionally, you can star or provide a 5-star rating on other Web Extensions I 
 - [Aviation Tools](https://github.com/cssnr/aviation-tools?tab=readme-ov-file#readme)
 - [Text Formatter](https://github.com/cssnr/text-formatter?tab=readme-ov-file#readme)
 
+More Related Products:
+
+- [Django Files Server](https://github.com/django-files/django-files?tab=readme-ov-file#readme)
+- [Django Files iOS App](https://github.com/django-files/ios-client?tab=readme-ov-file#readme)
+- [Django Files Web Extension](https://github.com/django-files/web-extension?tab=readme-ov-file#readme)
+
 For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)

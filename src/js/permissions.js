@@ -1,11 +1,24 @@
 // JS for permissions.html
 
-import { checkPerms, grantPerms, onRemoved, updateManifest } from './exports.js'
+import {
+    checkPerms,
+    grantPerms,
+    linkClick,
+    onRemoved,
+    openPopupPanel,
+    updateManifest,
+} from './exports.js'
 
 chrome.permissions.onAdded.addListener(onAdded)
 chrome.permissions.onRemoved.addListener(onRemoved)
 
 document.addEventListener('DOMContentLoaded', initPermissions)
+document
+    .querySelectorAll('a[href]')
+    .forEach((el) => el.addEventListener('click', linkClick))
+document
+    .querySelectorAll('.open-popup')
+    .forEach((el) => el.addEventListener('click', openPopupPanel))
 document
     .querySelectorAll('.grant-permissions')
     .forEach((el) => el.addEventListener('click', grantPerms))
@@ -36,8 +49,14 @@ async function initPermissions() {
 async function onAdded(permissions) {
     console.debug('onAdded', permissions)
     const hasPerms = await checkPerms()
-    if (hasPerms && window.opener) {
-        await chrome.runtime.openOptionsPage()
-        window.close()
+    if (hasPerms) {
+        if (document.hasFocus()) {
+            await chrome.runtime.openOptionsPage()
+        }
+        try {
+            window.close()
+        } catch (e) {
+            console.debug('window.close:', e)
+        }
     }
 }

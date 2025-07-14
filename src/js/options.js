@@ -3,6 +3,7 @@
 import {
     checkPerms,
     grantPerms,
+    linkClick,
     onAdded,
     onRemoved,
     revokePerms,
@@ -16,6 +17,9 @@ chrome.permissions.onRemoved.addListener(onRemoved)
 
 document.addEventListener('DOMContentLoaded', initOptions)
 document.getElementById('copy-support').addEventListener('click', copySupport)
+document
+    .querySelectorAll('a[href]')
+    .forEach((el) => el.addEventListener('click', linkClick))
 document
     .querySelectorAll('.revoke-permissions')
     .forEach((el) => el.addEventListener('click', revokePerms))

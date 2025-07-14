@@ -1,6 +1,6 @@
 // JS for sidepanel.html
 
-// import { showToast } from './exports.js'
+import { linkClick } from './exports.js'
 
 import {
     Uppy,
@@ -18,8 +18,8 @@ chrome.storage.onChanged.addListener(onChanged)
 document.addEventListener('DOMContentLoaded', domContentLoaded)
 document.getElementById('close').addEventListener('click', closePanel)
 document
-    .getElementById('options')
-    .addEventListener('click', () => chrome.runtime.openOptionsPage())
+    .querySelectorAll('a[href]')
+    .forEach((el) => el.addEventListener('click', linkClick))
 
 const wsStatus = document.getElementById('ws-status')
 
