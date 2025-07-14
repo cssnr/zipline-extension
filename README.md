@@ -56,13 +56,13 @@ Mobile browser support available for
 ## Features
 
 - View Recent Uploads on Popup/Popout.
+  - Auto Preview on Mouseover Links.
+  - Including Edit, Delete, Copy, and More...
+  - Customize Icons, Width and Number of Files.
 - Drag and Drop Upload from Popup and Side Panel.
 - Right Click any Image, Video, or Audio to Upload.
-- Right Click any URL to Shorten.
-- Preview Popup Images on Hover.
-- Set Favorite, Password, and Expiration.
-- Customize Popup Icons, Width and Number of Files.
-- Automatically Authenticate with Zipline.
+- Right Click any URL to Create a Short URL.
+- Automatically Authenticate with your Zipline Server.
 - Automatic Dark/Light Mode based on Browser Settings.
 
 > [!TIP]  
@@ -71,7 +71,7 @@ Mobile browser support available for
 
 ### Planned
 
-- Overhaul File List
+- Overhaul File List w/ Gallery
 - Add File List to Side Panel
 - Add Upload Text to Selection
 
