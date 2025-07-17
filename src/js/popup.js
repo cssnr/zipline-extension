@@ -132,7 +132,6 @@ async function initPopup(event) /* NOSONAR */ {
         sidePanel.classList.add('d-none')
         popOut.classList.add('d-none')
         reloadPanel.classList.remove('d-none')
-        window.addEventListener('resize', debounce(windowResize))
     } else if (popupView !== 'popup') {
         sidePanel.classList.add('d-none')
         popOut.classList.add('d-none')
@@ -254,7 +253,7 @@ async function initPopup(event) /* NOSONAR */ {
     } else if (!fileData.length) {
         return displayAlert({ message: 'No Files Returned.' })
     }
-    if (popupView !== 'popup') {
+    if (popupView !== 'popup' && !isSidePanel) {
         console.debug('%c SET: panel WxH', 'color: Lime')
         document.body.style.width = '100%'
     } else {
