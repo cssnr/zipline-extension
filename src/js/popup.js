@@ -1007,7 +1007,7 @@ async function deleteConfirm(event) {
  * @param {String} fileId
  * @param {String} method
  * @param {Object} data
- * @return {Promise<Response>}
+ * @return {Promise<Response|Error>}
  */
 async function handleFile(fileId, method, data = null) {
     console.debug(`handleFile: ${fileId}`)
@@ -1024,7 +1024,11 @@ async function handleFile(fileId, method, data = null) {
     console.debug('requestInit:', requestInit)
     const url = `${options.siteUrl}/api/user/files/${fileId}`
     console.debug('url:', url)
-    return await fetch(url, requestInit)
+    try {
+        return await fetch(url, requestInit)
+    } catch (e) {
+        return e
+    }
 }
 
 /**
