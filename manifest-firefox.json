@@ -3,7 +3,7 @@
     "scripts": ["js/service-worker.js"]
   },
   "sidebar_action": {
-    "default_panel": "html/sidepanel.html",
+    "default_panel": "html/popup.html?view=sidepanel",
     "default_title": "Zipline Extension",
     "open_at_install": false,
     "default_icon": {
