@@ -4,7 +4,7 @@
   },
   "permissions": ["offscreen", "sidePanel"],
   "side_panel": {
-    "default_path": "html/sidepanel.html"
+    "default_path": "html/popup.html?view=sidepanel"
   },
   "minimum_chrome_version": "109",
   "optional_host_permissions": ["*://*/*"]

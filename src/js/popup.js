@@ -26,10 +26,7 @@ document
 document
     .getElementById('confirm-delete')
     .addEventListener('click', deleteConfirm)
-// noinspection JSCheckFunctionSignatures
-document
-    .querySelectorAll('a[href]')
-    .forEach((el) => el.addEventListener('click', (e) => linkClick(e, true)))
+
 document
     .querySelectorAll('input')
     .forEach((el) => el.addEventListener('change', saveOptions))
@@ -48,6 +45,8 @@ document.querySelectorAll('.modal').forEach((el) =>
         input?.select()
     })
 )
+
+let closeOnClick = false
 
 async function windowResize() {
     // console.debug('windowResize:', event)
@@ -69,10 +68,12 @@ const passwordInput = document.getElementById('password-input')
 const sidePanel = document.getElementById('side-panel')
 const popOut = document.getElementById('pop-out')
 const popIn = document.getElementById('pop-in')
+const reloadPanel = document.getElementById('reload-panel')
 
 sidePanel.addEventListener('click', openSidePanel)
 popOut?.addEventListener('click', popOutClick)
 popIn?.addEventListener('click', popInClick)
+reloadPanel?.addEventListener('click', reloadPanelClick)
 
 const deleteModal = bootstrap.Modal.getOrCreateInstance('#delete-modal')
 const expireModal = bootstrap.Modal.getOrCreateInstance('#expire-modal')
@@ -106,13 +107,37 @@ async function initPopup(event) /* NOSONAR */ {
     mouseRow = null
     errorAlert.classList.add('d-none')
 
-    const { popupView } = await chrome.storage.local.get(['popupView'])
+    let { popupView } = await chrome.storage.local.get(['popupView'])
     console.debug('%c popupView:', 'color: Lime', popupView)
 
-    if (popupView !== 'popup') {
+    // TODO: Hacks to run popup in sidepanel for now...
+    const url = new URL(window.location.href)
+    const view = url.searchParams.get('view')
+    const isSidePanel = view === 'sidepanel'
+    console.debug('%c view:', 'color: Yellow', view)
+    console.debug('%c isSidePanel:', 'color: Yellow', isSidePanel)
+    if (isSidePanel) {
+        popupView = 'panel'
+    }
+    const closeOnClick = popupView === 'popup'
+    console.debug('%c closeOnClick:', 'color: Yellow', closeOnClick)
+    // noinspection JSCheckFunctionSignatures
+    document
+        .querySelectorAll('a[href]')
+        .forEach((el) =>
+            el.addEventListener('click', (e) => linkClick(e, closeOnClick))
+        )
+
+    if (isSidePanel) {
+        sidePanel.classList.add('d-none')
+        popOut.classList.add('d-none')
+        reloadPanel.classList.remove('d-none')
+        window.addEventListener('resize', debounce(windowResize))
+    } else if (popupView !== 'popup') {
         sidePanel.classList.add('d-none')
         popOut.classList.add('d-none')
         popIn.classList.remove('d-none')
+        reloadPanel.classList.remove('d-none')
         window.addEventListener('resize', debounce(windowResize))
         chrome.windows.getCurrent().then((window) => {
             chrome.storage.local.set({ lastPanelID: window.id }).then(() => {
@@ -606,7 +631,7 @@ function updateTable(data, options) /* NOSONAR */ {
         link.dataset.name = name
         link.dataset.row = i.toString()
         // link.dataset.thumb = thumbURL?.href || rawURL.href
-        link.addEventListener('click', (e) => linkClick(e, true))
+        link.addEventListener('click', (e) => linkClick(e, closeOnClick))
 
         // Cell: 1
         const cell1 = row.cells[0]
@@ -1176,6 +1201,16 @@ async function popInClick(event, close = true) {
         console.debug(e)
     }
     if (close) window.close()
+}
+
+/**
+ * Reload Panel Click Callback
+ * @function reloadPanelClick
+ * @param {MouseEvent} event
+ */
+async function reloadPanelClick(event) {
+    console.debug('reloadPanelClick:', event)
+    await initPopup(event)
 }
 
 /**
