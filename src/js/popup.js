@@ -226,7 +226,7 @@ async function initPopup(event) /* NOSONAR */ {
     }
     let response
     try {
-        const url = new URL(`${options.siteUrl}/api/user/recent/`)
+        const url = new URL(`${options.siteUrl}/api/user/recent`)
         url.searchParams.append('take', options.recentFiles || '10')
         response = await fetch(url, opts)
         fileData = await response.json()

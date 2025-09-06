@@ -3,10 +3,10 @@
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/gkkloiijbkgkbmgckfefigkjckhdikkd?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/zipline-extension?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/zipline-extension)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/zipline-extension?logo=github)](https://github.com/cssnr/zipline-extension/releases/latest)
-[![Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=github&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
-[![Test](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/test.yaml?logo=github&label=test)](https://github.com/cssnr/zipline-extension/actions/workflows/test.yaml)
+[![GitHub Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=cachet&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
+[![GitHub Test](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/zipline-extension/actions/workflows/test.yaml)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_zipline-extension&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_zipline-extension)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/zipline-extension?logo=github&label=updated)](https://github.com/cssnr/zipline-extension/graphs/commit-activity)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/zipline-extension?logo=github&label=updated)](https://github.com/cssnr/zipline-extension/pulse)
 [![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/zipline-extension?logo=htmx&logoColor=white)](https://github.com/cssnr/zipline-extension)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/zipline-extension?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/zipline-extension)
 [![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
@@ -15,16 +15,6 @@
 
 # Zipline Web Extension
 
-A [Chrome](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd) Web Extension
-and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for a
-self-hosted [Zipline v4 Server](https://github.com/diced/zipline) to upload files, shorten urls,
-view and edit uploaded files, and much more...
-
-This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
-Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
-
-We are also developing a native [Zipline Upload Android Application](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
-
 - [Install](#install)
 - [Features](#features)
   - [Known Issues](#known-issues)
@@ -32,6 +22,23 @@ We are also developing a native [Zipline Upload Android Application](https://git
 - [Setup](#setup)
 - [Support](#support)
 - [Contributing](#contributing)
+
+A Zipline Client [Chrome](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd) Web Extension
+and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for a
+self-hosted [Diced/Zipline v4 Server](https://github.com/diced/zipline) to upload files, shorten urls,
+view, edit and upload files, and much more...
+
+Upload files with drag and drop from your computer or right-click on any media to upload directly to your Zipline server.
+
+Check all the features and more on the website: https://zipline-extension.cssnr.com/
+
+This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
+Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
+
+We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) ([cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme)).
+
+> [!TIP]  
+> ▶️ View the [Getting Started Guide](https://zipline-extension.cssnr.com/guides/get-started) on the website.
 
 # Install
 
@@ -59,6 +66,8 @@ Mobile browser support available for
 > This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
 
 ## Features
+
+> View the [Features](https://zipline-extension.cssnr.com/guides/features) on the website.
 
 - View Recent Uploads on Popup/Side Panel.
   - Auto Preview on Mouseover Links.
@@ -94,6 +103,8 @@ You can pin the Addon by clicking the `Puzzle Piece`, find the `Zipline Extensio
 
 ## Setup
 
+> View the [Setup Guide](https://zipline-extension.cssnr.com/guides/get-started#setup) on the website.
+
 To automatically configure the web extension to work with your Zipline instance do the following:
 
 - Log in to your Zipline Instance
@@ -127,7 +138,7 @@ Note: When providing anonymous feedback there is no way to follow up and get mor
 
 # Contributing
 
-For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](CONTRIBUTING.md).
+For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](#contributing-ov-file).
 
 Please consider making a donation to support the development of this project
 and [additional](https://cssnr.com/) open source projects.
