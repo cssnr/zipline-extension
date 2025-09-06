@@ -25,17 +25,17 @@
 
 A Zipline Client [Chrome](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd) Web Extension
 and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon for a
-self-hosted [Diced/Zipline v4 Server](https://github.com/diced/zipline) to upload files, shorten urls,
+self-hosted [Diced/Zipline](https://github.com/diced/zipline) v4 server to upload files, shorten urls,
 view, edit and upload files, and much more...
 
 Upload files with drag and drop from your computer or right-click on any media to upload directly to your Zipline server.
 
-Check all the features and more on the website: https://zipline-extension.cssnr.com/
+Check all the [features](https://zipline-extension.cssnr.com/guides/features) and [screenshots](https://zipline-extension.cssnr.com/guides/features#screenshots) on the [website](https://zipline-extension.cssnr.com/).
 
 This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
 Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
 
-We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) ([cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme)).
+We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) - [cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
 
 > [!TIP]  
 > ▶️ View the [Getting Started Guide](https://zipline-extension.cssnr.com/guides/get-started) on the website.
@@ -60,10 +60,10 @@ Mobile browser support available for
 
 [![QR Code Firefox](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/qr-code-firefox.png)](https://addons.mozilla.org/addon/zipline-extension)
 
-[![Screenshot](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/screenshot.jpg)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+[![Screenshot](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/screenshot.jpg)](https://zipline-extension.cssnr.com/)
 
 > [!IMPORTANT]  
-> This Web Extension is designed to work with a [Zipline v4](https://github.com/diced/zipline) server.
+> This Web Extension is designed to work with a [Diced/Zipline](https://github.com/diced/zipline) v4 server.
 
 ## Features
 
@@ -134,8 +134,6 @@ If you are experiencing an issue/bug or getting unexpected results, use:
 Logs can be found inspecting the page (Ctrl+Shift+I), clicking on the Console, and;
 Firefox: toggling Debug logs, Chrome: toggling Verbose from levels dropdown.
 
-Note: When providing anonymous feedback there is no way to follow up and get more information unless you provide a contact method.
-
 # Contributing
 
 For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](#contributing-ov-file).
@@ -169,6 +167,7 @@ More Related Products:
 
 - [Django Files Server](https://github.com/django-files/django-files?tab=readme-ov-file#readme)
 - [Django Files iOS App](https://github.com/django-files/ios-client?tab=readme-ov-file#readme)
+- [Django Files Android App](https://github.com/django-files/android-client?tab=readme-ov-file#readme)
 - [Django Files Web Extension](https://github.com/django-files/web-extension?tab=readme-ov-file#readme)
 
 For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)
