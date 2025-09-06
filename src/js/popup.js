@@ -852,9 +852,10 @@ async function ctxMenu(event) {
             file.name
         // expireModal.show() // TODO: Refactor as Original Name Moda;
     } else if (action === 'password') {
-        if (typeof file.password === 'string') {
-            passwordInput.value = file.password
-        }
+        passwordInput.value = ''
+        // if (typeof file.password === 'string') {
+        //     passwordInput.value = file.password
+        // }
         document.querySelector('#password-modal .file-name').textContent =
             file.name
         passwordModal.show()
