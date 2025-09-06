@@ -226,7 +226,7 @@ async function initPopup(event) /* NOSONAR */ {
     }
     let response
     try {
-        const url = new URL(`${options.siteUrl}/api/user/recent/`)
+        const url = new URL(`${options.siteUrl}/api/user/recent`)
         url.searchParams.append('take', options.recentFiles || '10')
         response = await fetch(url, opts)
         fileData = await response.json()
@@ -321,7 +321,7 @@ function initUppy(options) {
             browserBackButtonClose: false,
         })
         .use(XHRUpload, {
-            endpoint: options.siteUrl + '/api/upload/',
+            endpoint: options.siteUrl + '/api/upload',
             headers: {
                 Authorization: options.authToken,
                 'x-zipline-original-name': true,
@@ -681,7 +681,10 @@ function updateTable(data, options) /* NOSONAR */ {
         // fileName.dataset.thumb = thumbURL?.href || rawURL.href
         drop.querySelector('.copy-link').dataset.clipboardText = viewURL.href
         drop.querySelector('.copy-raw').dataset.clipboardText = rawURL.href
-        drop.querySelectorAll('.raw').forEach((el) => (el.href = rawURL.href))
+        drop.querySelectorAll('.raw').forEach((el) => {
+            el.href = rawURL.href
+            el.addEventListener('click', linkClick)
+        })
         button.appendChild(drop)
 
         // Cell: 0
@@ -852,9 +855,10 @@ async function ctxMenu(event) {
             file.name
         // expireModal.show() // TODO: Refactor as Original Name Moda;
     } else if (action === 'password') {
-        if (typeof file.password === 'string') {
-            passwordInput.value = file.password
-        }
+        passwordInput.value = ''
+        // if (typeof file.password === 'string') {
+        //     passwordInput.value = file.password
+        // }
         document.querySelector('#password-modal .file-name').textContent =
             file.name
         passwordModal.show()
