@@ -681,7 +681,10 @@ function updateTable(data, options) /* NOSONAR */ {
         // fileName.dataset.thumb = thumbURL?.href || rawURL.href
         drop.querySelector('.copy-link').dataset.clipboardText = viewURL.href
         drop.querySelector('.copy-raw').dataset.clipboardText = rawURL.href
-        drop.querySelectorAll('.raw').forEach((el) => (el.href = rawURL.href))
+        drop.querySelectorAll('.raw').forEach((el) => {
+            el.href = rawURL.href
+            el.addEventListener('click', linkClick)
+        })
         button.appendChild(drop)
 
         // Cell: 0
