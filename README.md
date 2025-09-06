@@ -28,12 +28,13 @@ and [Firefox](https://addons.mozilla.org/addon/zipline-extension) Browser Addon 
 self-hosted [Diced/Zipline](https://github.com/diced/zipline) v4 server to upload files, shorten urls,
 view, edit and upload files, and much more...
 
-Upload files with drag and drop from your computer or right-click on any media to upload directly to your Zipline server.
-
-Check all the [features](https://zipline-extension.cssnr.com/guides/features) and [screenshots](https://zipline-extension.cssnr.com/guides/features#screenshots) on the [website](https://zipline-extension.cssnr.com/).
+Upload files by dragging and dropping from your computer to the popup or side panel.
+Remotely upload media from any website with the right-click context menu.
 
 This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
 Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
+
+Check all the [features](https://zipline-extension.cssnr.com/guides/features) and [screenshots](https://zipline-extension.cssnr.com/guides/features#screenshots) on the [website](https://zipline-extension.cssnr.com/).
 
 We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) - [cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
 
