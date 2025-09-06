@@ -321,7 +321,7 @@ function initUppy(options) {
             browserBackButtonClose: false,
         })
         .use(XHRUpload, {
-            endpoint: options.siteUrl + '/api/upload/',
+            endpoint: options.siteUrl + '/api/upload',
             headers: {
                 Authorization: options.authToken,
                 'x-zipline-original-name': true,

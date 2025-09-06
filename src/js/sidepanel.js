@@ -66,7 +66,7 @@ async function domContentLoaded() {
         // .use(Audio, { target: Dashboard })
         // .use(ScreenCapture, { target: Dashboard })
         .use(XHRUpload, {
-            endpoint: options.siteUrl + '/api/upload/',
+            endpoint: options.siteUrl + '/api/upload',
             headers: {
                 Authorization: options.authToken,
             },
