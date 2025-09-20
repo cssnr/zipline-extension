@@ -2,7 +2,8 @@
 import 'animate.css'
 
 // Variables
-const chrome_url = 'https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd'
+const chrome_url =
+  'https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd'
 const firefox_url = 'https://addons.mozilla.org/addon/zipline-extension'
 
 // Props
@@ -25,7 +26,9 @@ const browsers = [
 ]
 
 // Class
-const imageClass = props.animation ? `animate__animated ${props.animation}` : null
+const imageClass = props.animation
+  ? `animate__animated ${props.animation}`
+  : null
 
 // Style
 const iconStyle = { minHeight: `${props.size}px` }

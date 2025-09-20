@@ -10,7 +10,8 @@ const settings = {
   image: '/images/logo.png',
   color: '#344398',
   source_repo: 'https://github.com/cssnr/zipline-extension',
-  chrome_url: 'https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd',
+  chrome_url:
+    'https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd',
   mozilla_url: 'https://addons.mozilla.org/addon/zipline-extension',
 }
 
@@ -29,7 +30,10 @@ export default defineConfig({
   description: settings.description.short,
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
-    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: settings.image }],
+    [
+      'link',
+      { rel: 'apple-touch-icon', sizes: '180x180', href: settings.image },
+    ],
 
     ['meta', { name: 'darkreader-lock' }],
 
@@ -39,14 +43,20 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: settings.name }],
     ['meta', { property: 'og:title', content: settings.title }],
-    ['meta', { property: 'og:description', content: settings.description.short }],
+    [
+      'meta',
+      { property: 'og:description', content: settings.description.short },
+    ],
     ['meta', { property: 'og:image', content: settings.image }],
     ['meta', { property: 'og:image:alt', content: settings.title }],
 
     ['meta', { property: 'twitter:card', content: 'summary' }],
     ['meta', { property: 'twitter:site', content: settings.name }],
     ['meta', { property: 'twitter:title', content: settings.title }],
-    ['meta', { property: 'twitter:description', content: settings.description.short }],
+    [
+      'meta',
+      { property: 'twitter:description', content: settings.description.short },
+    ],
     ['meta', { property: 'twitter:image', content: settings.image }],
     ['meta', { property: 'twitter:image:alt', content: settings.title }],
   ],
@@ -58,7 +68,11 @@ export default defineConfig({
     logo: '/images/logo-sm.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Get Started', link: '/guides/get-started', activeMatch: '/guides/' },
+      {
+        text: 'Get Started',
+        link: '/guides/get-started',
+        activeMatch: '/guides/',
+      },
       { text: 'Docs', link: '/docs/popup', activeMatch: '/docs/' },
       {
         text: 'Links',
@@ -66,7 +80,10 @@ export default defineConfig({
           { text: 'Chrome Web Store', link: settings.chrome_url },
           { text: 'Mozilla Addons', link: settings.mozilla_url },
           { text: 'GitHub Source Code', link: settings.source_repo },
-          { text: 'Android Application', link: 'https://github.com/cssnr/zipline-android' },
+          {
+            text: 'Android Application',
+            link: 'https://github.com/cssnr/zipline-android',
+          },
           { text: 'Developer Site', link: 'https://cssnr.github.io/' },
           { text: 'Contribute', link: 'https://ko-fi.com/cssnr' },
         ],
