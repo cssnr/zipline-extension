@@ -4,18 +4,19 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "18 18 * * 1,3,5"
-  pull_request:
-    branches: [master]
+  #pull_request:
+  #  branches: [master]
   push:
-    branches: [master]
-    #paths:
-    #  - ".github/workflows/test.yaml"
-    #  - "src/**"
-    #  - "tests/**"
-    #  - "gulpfile.js"
-    #  - "manifest.json"
-    #  - "package.json"
-    #  - "package-lock.json"
+    branches: ["**"]
+    paths:
+      - "dist/**"
+      - "src/**"
+      - "tests/**"
+      - ".github/workflows/test.yaml"
+      - "manifest*.json"
+      - "package*.json"
+      - "requirements*.txt"
+      - "gulpfile.js"
 
 jobs:
   test:

@@ -3,11 +3,14 @@
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/gkkloiijbkgkbmgckfefigkjckhdikkd?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/zipline-extension?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/zipline-extension)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/zipline-extension?logo=github)](https://github.com/cssnr/zipline-extension/releases/latest)
-[![GitHub Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=cachet&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
-[![GitHub Test](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/zipline-extension/actions/workflows/test.yaml)
+[![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=cachet&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
+[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/zipline-extension/actions/workflows/test.yaml)
+[![Workflow Pages](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/pages.yaml?logo=cachet&label=pages)](https://github.com/cssnr/zipline-extension/actions/workflows/pages.yaml)
+[![Deployments Pages](https://img.shields.io/github/deployments/cssnr/zipline-extension/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/cssnr/zipline-extension/deployments/docs)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_zipline-extension&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_zipline-extension)
+[![GitHub Contributors](https://img.shields.io/github/contributors/cssnr/zipline-extension?logo=github)](https://github.com/cssnr/zipline-extension/graphs/contributors)
 [![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/zipline-extension?logo=github&label=updated)](https://github.com/cssnr/zipline-extension/pulse)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/zipline-extension?logo=htmx&logoColor=white)](https://github.com/cssnr/zipline-extension)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/zipline-extension?logo=htmx&logoColor=white)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
 [![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/zipline-extension?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/zipline-extension)
 [![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
@@ -137,10 +140,11 @@ Firefox: toggling Debug logs, Chrome: toggling Verbose from levels dropdown.
 
 # Contributing
 
-For instructions on building, testing and submitting a PR, see [CONTRIBUTING.md](#contributing-ov-file).
+All contributions are welcome including [bug reports](https://github.com/cssnr/vitepress-swiper/issues), [feature requests](https://github.com/cssnr/vitepress-swiper/discussions/categories/feature-requests), or pull requests.
 
-Please consider making a donation to support the development of this project
-and [additional](https://cssnr.com/) open source projects.
+For instructions on creating a PR for the Web Extension or Documentation, see the [CONTRIBUTING.md](#contributing-ov-file).
+
+Please consider making a donation to support the development of this project and additional open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 

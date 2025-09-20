@@ -1,0 +1,42 @@
+:root {
+    --vp-home-hero-name-color: transparent;
+    --vp-home-hero-name-background: linear-gradient(120deg, #ff00ff, #18e7ff);
+
+    --vp-home-hero-image-background-image: linear-gradient(
+        0deg,
+        #344398 80%,
+        #344398 50%
+    );
+    --vp-home-hero-image-filter: blur(44px);
+}
+
+body {
+    overflow-y: scroll;
+}
+
+summary {
+    cursor: pointer;
+}
+
+table th {
+    text-wrap: nowrap;
+}
+
+.search-keywords {
+    display: none;
+}
+
+/* NOTE: This is a "fix" for the search modal content shift */
+@supports (scrollbar-gutter: stable) {
+    @media (min-width: 769px) {
+        html {
+            scrollbar-gutter: stable;
+        }
+    }
+}
+
+.vp-doc p > img,
+.vp-doc p > a > img {
+    display: inline-block;
+    margin-right: 8px;
+}

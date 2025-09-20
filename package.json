@@ -13,6 +13,10 @@
     "build:chrome": "npm run manifest:chrome && npx web-ext build -n {name}-chrome-{version}.zip -o -s src",
     "build:firefox": "npm run manifest:firefox && npx web-ext build -n {name}-firefox-{version}.zip -o -s src",
     "build": "npm run build:chrome && npm run build:firefox",
+    "docs": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "get-contributors": "npx get-contributors cssnr/zipline-extension -f docs/.vitepress/contributors.json",
     "prettier": "npx prettier --check ."
   },
   "dependencies": {
@@ -22,14 +26,18 @@
     "jquery": "^3.7.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.35.0",
-    "@types/chrome": "^0.1.6",
-    "eslint": "^9.35.0",
+    "@cssnr/vitepress-plugin-contributors": "^0.0.3",
+    "@cssnr/vitepress-swiper": "^0.2.0",
+    "@eslint/js": "^9.36.0",
+    "@types/chrome": "^0.1.12",
+    "animate.css": "^4.1.1",
+    "eslint": "^9.36.0",
     "gulp": "^5.0.1",
     "gulp-download2": "^1.1.0",
     "json-merger": "^3.0.0",
     "prettier": "^3.6.2",
-    "puppeteer": "^24.19.0",
-    "web-ext": "^8.9.0"
+    "puppeteer": "^24.22.0",
+    "vitepress": "^1.6.4",
+    "web-ext": "^8.10.0"
   }
 }

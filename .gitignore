@@ -1,9 +1,11 @@
 .idea/
 *.iml
 .vscode/
+**/cache/
 **/dist/
 build/
 node_modules/
 web-ext-artifacts/
 tests/screenshots/
 src/manifest.json
+contributors.json
