@@ -2,6 +2,7 @@
   "trailingComma": "es5",
   "semi": false,
   "singleQuote": true,
+  "printWidth": 110,
   "overrides": [
     {
       "files": ["**/*.html", "**/*.yaml", "**/*.yml"],
