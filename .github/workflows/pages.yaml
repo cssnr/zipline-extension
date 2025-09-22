@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  CRAWLER_ID: "b2b42be2-ff7f-45a8-8d84-828f80ae8616"
+  CRAWLER_ID: "af2f517b-d6f4-4a68-ad9e-93803cdd9ea6"
 
 permissions:
   contents: read
@@ -45,8 +45,7 @@ jobs:
 
       - name: "Run Build"
         run: |
-          npm run get-contributors
-          npm run docs:build
+          npm run docs:deploy
 
       - name: "Upload Pages Artifact"
         uses: actions/upload-pages-artifact@v4
