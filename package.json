@@ -18,7 +18,8 @@
     "lint:web-ext": "npm run manifest:firefox && npx web-ext lint --source-dir ./src/ --ignore-files dist/**",
     "manifest:chrome": "npx json-merger -p --am concat -o src/manifest.json manifest.json manifest-chrome.json",
     "manifest:firefox": "npx json-merger -p --am concat -o src/manifest.json manifest.json manifest-firefox.json",
-    "prettier": "npx prettier --check .",
+    "prettier:check": "npx prettier --check .",
+    "prettier:write": "npx prettier --write .",
     "test": "npm run manifest:chrome && node tests/test.js"
   },
   "dependencies": {
