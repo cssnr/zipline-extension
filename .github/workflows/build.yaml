@@ -15,11 +15,10 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v5
 
-      - name: "Setup Node 22"
-        uses: actions/setup-node@v5
+      - name: "Setup Node 24"
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
-          cache: npm
+          node-version: 24
 
       - name: "Install"
         run: |
@@ -66,3 +65,4 @@ jobs:
         uses: sarisia/actions-status-discord@v1
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          description: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}

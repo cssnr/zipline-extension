@@ -95,6 +95,7 @@ export default defineConfig({
       { icon: 'googlechrome', link: settings.chrome_url },
       { icon: 'mozilla', link: settings.mozilla_url },
       { icon: 'android', link: 'https://github.com/cssnr/zipline-android' },
+      { icon: 'python', link: 'https://zipline-cli.cssnr.com/' },
       { icon: 'discord', link: 'https://discord.gg/wXy6m2X8wY' },
       { icon: 'kofi', link: 'https://ko-fi.com/cssnr' },
       {
