@@ -150,8 +150,9 @@ Please consider making a donation to support the development of this project and
 
 More **Zipline** Products:
 
-- [Zipline Android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme) - Native Android Application for Zipline
-- [Zipline CLI](https://github.com/cssnr/zipline-cli?tab=readme-ov-file#readme) - CLI Interface for Zipline
+- [Zipline CLI](https://zipline-cli.cssnr.com/) - [Source Code](https://github.com/cssnr/zipline-cli?tab=readme-ov-file#readme)
+- [Zipline Web Extension](https://zipline-extension.cssnr.com/) - [Source Code](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+- [Zipline Android Application](https://zipline-android.cssnr.com/) - [Source Code](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme)
 
 Additionally, you can star or provide a 5-star rating on other Web Extensions I have created and published:
 

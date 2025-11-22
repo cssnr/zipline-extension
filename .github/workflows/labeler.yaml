@@ -3,9 +3,9 @@ name: "PR Labeler"
 on:
   pull_request_target:
 
-permissions:
-  contents: write
-  pull-requests: write
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   labeler:
@@ -13,9 +13,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
+    permissions:
+      pull-requests: write
+      issues: write
+
     steps:
       - name: "Checkout Configs"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: cssnr/configs
           ref: master
@@ -37,7 +41,7 @@ jobs:
 
       - name: "Label Creator"
         continue-on-error: true
-        uses: cssnr/label-creator-action@v1
+        uses: cssnr/label-creator-action@latest
         with:
           file: .configs/labels/labels.yaml
 
