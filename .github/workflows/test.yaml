@@ -9,13 +9,12 @@ on:
   push:
     branches: ["**"]
     paths:
+      - ".github/workflows/test.yaml"
       - "dist/**"
       - "src/**"
       - "tests/**"
-      - ".github/workflows/test.yaml"
       - "manifest*.json"
       - "package*.json"
-      - "requirements*.txt"
       - "gulpfile.js"
 
 jobs:

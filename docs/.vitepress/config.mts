@@ -84,6 +84,7 @@ export default defineConfig({
             text: 'Android Application',
             link: 'https://github.com/cssnr/zipline-android',
           },
+          { text: 'Python CLI', link: 'https://github.com/cssnr/zipline-cli' },
           { text: 'Developer Site', link: 'https://cssnr.github.io/' },
           { text: 'Contribute', link: 'https://ko-fi.com/cssnr' },
         ],

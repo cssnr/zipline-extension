@@ -16,65 +16,40 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
-      - name: "Setup Node 22"
-        uses: actions/setup-node@v5
+      - name: "Setup Node 24"
+        uses: actions/setup-node@v6
         with:
-          node-version: 22
-          cache: npm
+          node-version: 24
 
       - name: "Install"
         id: install
         run: |
           npm ci
 
-      - name: "ESLint"
+      - name: "eslint"
         if: ${{ !cancelled() }}
         run: |
           npm run lint
 
-      - name: "Prettier Check"
+      - name: "prettier"
         if: ${{ !cancelled() }}
         run: |
           npm run prettier:check
 
-      - name: "Yamllint"
+      - name: "yamllint"
         if: ${{ !cancelled() }}
         env:
-          CONFIG: "{extends: relaxed, ignore: [node_modules/], rules: {line-length: {max: 119}}}"
+          CONFIG: .github/yamllint.yaml
         run: |
           echo "::group::List Files"
-          yamllint -d '${{ env.CONFIG }}' --list-files .
+          yamllint -c "${{ env.CONFIG }}" --list-files .
           echo "::endgroup::"
-          yamllint -d '${{ env.CONFIG }}' .
+          yamllint -c "${{ env.CONFIG }}" .
 
-      - name: "Actionlint"
+      - name: "actionlint"
         if: ${{ !cancelled() }}
-        run: |
-          echo "::group::Download"
-          loc=$(curl -sI https://github.com/rhysd/actionlint/releases/latest | grep -i '^location:')
-          echo "loc: ${loc}"
-          tag=$(echo "${loc}" | sed -E 's|.*/tag/v?(.*)|\1|' | tr -d '\t\r\n')
-          echo "tag: ${tag}"
-          url="https://github.com/rhysd/actionlint/releases/latest/download/actionlint_${tag}_linux_amd64.tar.gz"
-          echo "url: ${url}"
-          curl -sL "${url}" | tar xz -C "${RUNNER_TEMP}" actionlint
-          file "${RUNNER_TEMP}/actionlint"
-          "${RUNNER_TEMP}/actionlint" --version
-          echo "::endgroup::"
-          "${RUNNER_TEMP}/actionlint" -color -verbose -shellcheck= -pyflakes=
-
-      # Note: this will most likely be split into two different workflows...
-      - name: "Check Docs Changes"
-        id: docs-changed
-        uses: tj-actions/changed-files@24d32ffd492484c1d75e0c0b894501ddb9d30d62 # v47
+        uses: cssnr/actionlint-action@v1
         with:
-          files: |
-            docs/**
-            .github/workflows/pages.yaml
-
-      - name: "Verify Docs Build"
-        if: steps.docs-changed.outputs.any_changed == 'true'
-        run: |
-          npm run docs:deploy
+          shellcheck_opts: -e SC2129

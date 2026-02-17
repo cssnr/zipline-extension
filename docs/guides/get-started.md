@@ -29,19 +29,6 @@ Available for all major browsers including [Firefox Android](https://addons.mozi
 
 ## Setup
 
-The extension can be connected to your [server](#server) either [automatically](#automatic-setup) or [manually](#manual-setup).
-
-### Automatic Setup
-
-1. Navigate to your Zipline Dashboard.
-2. Activate the Popup _(1 of 3 ways)_.
-   - Click the Toolbar Icon.
-   - Use the Right Click Menu.
-   - Use the Keyboard Shortcut.
-3. Click **Authenticate with Current Site**.
-
-![Auth Popup](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/docs/auth.jpg)
-
 ### Manual Setup
 
 1. Open the Extension Options _(1 of 3 ways)_.
@@ -53,6 +40,18 @@ The extension can be connected to your [server](#server) either [automatically](
 ::: tip ❔ HELP
 If you have any trouble getting started, [support is available](../support.md).
 :::
+
+### Automatic Setup
+
+You must use [Manual Setup](#manual-setup) starting with Zipline v4.4.1 or later.
+
+::: warning
+Zipline set the Cookie HttpOnly to `true` which makes automatic authentication impossible.
+
+This method no longer works and will be removed in a future update.
+:::
+
+![Auth Popup](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/docs/auth.jpg)
 
 ## Server
 
