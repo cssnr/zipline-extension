@@ -1,11 +1,12 @@
 .idea/
 *.iml
 .vscode/
-**/cache/
-**/dist/
+cache/
+dist/
 build/
 node_modules/
 web-ext-artifacts/
 tests/screenshots/
 src/manifest.json
 contributors.json
+.secrets

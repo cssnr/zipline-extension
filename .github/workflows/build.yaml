@@ -11,9 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
+    permissions:
+      contents: write
+
     steps:
       - name: "Checkout"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: "Setup Node 24"
         uses: actions/setup-node@v6
@@ -34,19 +37,16 @@ jobs:
 
       - name: "Upload to Actions"
         if: ${{ github.event_name == 'workflow_dispatch' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: artifacts
           path: web-ext-artifacts/
 
       - name: "Upload to Release"
         if: ${{ github.event_name == 'release' }}
-        uses: svenstaro/upload-release-action@v2
+        uses: cssnr/upload-release-action@v1
         with:
-          file: web-ext-artifacts/*
-          tag: ${{ github.ref }}
-          overwrite: true
-          file_glob: true
+          globs: web-ext-artifacts/*
 
       - name: "Update Release Notes Action"
         if: ${{ github.event_name == 'release' }}
@@ -58,7 +58,7 @@ jobs:
       - name: "Package Changelog Action"
         if: ${{ github.event_name == 'release' }}
         continue-on-error: true
-        uses: cssnr/package-changelog-action@v1
+        uses: cssnr/package-changelog-action@v2
 
       - name: "Send Failure Notification"
         if: ${{ failure() && github.event_name == 'release' }}
