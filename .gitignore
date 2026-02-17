@@ -9,3 +9,4 @@ web-ext-artifacts/
 tests/screenshots/
 src/manifest.json
 contributors.json
+.secrets
