@@ -138,7 +138,7 @@ async function getPage(name, log, size) {
     await page.waitForNetworkIdle()
     await screenshot('popup')
 
-    await page.waitForSelector('[data-action="favorite"]', { visible: true })
+    // await page.waitForSelector('[data-action="favorite"]', { visible: true })
     await page.locator('[data-action="favorite"]').click()
     await page.hover('tr')
     await page.waitForNetworkIdle()
@@ -146,7 +146,7 @@ async function getPage(name, log, size) {
 
     await page.hover('tr')
     await page.locator('.ctx-button').click()
-    await page.waitForSelector('[data-action="favorite"]', { visible: true })
+    // await page.waitForSelector('[data-action="favorite"]', { visible: true })
     await page.locator('[data-action="favorite"]').click()
     await page.hover('tr')
     await page.waitForNetworkIdle()
