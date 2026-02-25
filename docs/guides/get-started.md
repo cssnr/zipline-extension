@@ -64,4 +64,6 @@ You must use [Manual Setup](#manual-setup) starting with Zipline v4.4.1 or later
 
 This guide assumes you have a [diced/zipline](https://github.com/diced/zipline) server setup and accessible.
 
-Only Version 4 is supported. Otherwise, you can [get started here](https://zipline.diced.sh/docs/get-started).
+Otherwise, you can [get started here](https://zipline.diced.sh/docs/get-started).
+
+Only Version 4 is supported.

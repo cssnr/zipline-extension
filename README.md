@@ -46,9 +46,11 @@ Please let us know [which features](https://github.com/cssnr/zipline-extension/i
 
 Check all the [features](https://zipline-extension.cssnr.com/guides/features) and [screenshots](https://zipline-extension.cssnr.com/guides/features#screenshots) on the [website](https://zipline-extension.cssnr.com/).
 
-We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) - [cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
-
 [![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=quicklook)](https://zipline-extension.cssnr.com/)
+
+> [!NOTE]  
+> We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/).  
+> [https://github.com/cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme)
 
 # Install
 
