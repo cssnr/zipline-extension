@@ -22,6 +22,9 @@
 
 # Zipline Web Extension
 
+<a title="Zipline Web Extension" href="https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme" target="_blank">
+<img alt="Zipline Web Extension" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/zipline-extension/refs/heads/master/src/media/logo128.png"></a>
+
 - [Install](#install)
 - [Features](#features)
   - [Known Issues](#known-issues)
@@ -39,7 +42,7 @@ Upload files by dragging and dropping from your computer to the popup or side pa
 Remotely upload media from any website with the right-click context menu.
 
 This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
-Please let us know [which features](https://github.com/cssnr/auto-auth/issues/new?template=1-feature.yaml) you would like to see.
+Please let us know [which features](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml) you would like to see.
 
 Check all the [features](https://zipline-extension.cssnr.com/guides/features) and [screenshots](https://zipline-extension.cssnr.com/guides/features#screenshots) on the [website](https://zipline-extension.cssnr.com/).
 
@@ -86,7 +89,7 @@ Mobile browser support available for
 
 > [!TIP]  
 > **Don't see your feature here?**
-> Submit a [Feature Request](https://github.com/cssnr/auto-auth/issues/new?template=1-feature.yaml).
+> Submit a [Feature Request](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml).
 
 ### Planned
 

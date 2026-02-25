@@ -15,7 +15,7 @@ If you have any troubles using the application, or run into any issues, please l
 
 Every bug that can be reproduced will be fixed and Feature Request are highly desired.
 
-Contributing is as easy as telling us [what features or changes](https://github.com/cssnr/auto-auth/issues/new?template=1-feature.yaml) you want to see next…
+Contributing is as easy as telling us [what features or changes](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml) you want to see next…
 
 [[toc]]
 
@@ -25,7 +25,7 @@ If you have a question or need help with anything,
 start a discussion in [General](https://github.com/cssnr/zipline-extension/discussions/categories/general)
 or [Q&A](https://github.com/cssnr/zipline-extension/discussions/categories/q-a).
 
-If you want to see a new feature, submit a [Feature Requests](https://github.com/cssnr/auto-auth/issues/new?template=1-feature.yaml).
+If you want to see a new feature, submit a [Feature Requests](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml).
 
 [![Start A Discussion](https://img.shields.io/badge/Start_A_Discussion-blue?style=for-the-badge&logo=github)](https://github.com/cssnr/zipline-extension/discussions)
 
