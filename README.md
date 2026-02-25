@@ -3,20 +3,27 @@
 [![Chrome Web Store Version](https://img.shields.io/chrome-web-store/v/gkkloiijbkgkbmgckfefigkjckhdikkd?label=chrome&logo=googlechrome)](https://chromewebstore.google.com/detail/zipline-extension/gkkloiijbkgkbmgckfefigkjckhdikkd)
 [![Mozilla Add-on Version](https://img.shields.io/amo/v/zipline-extension?label=firefox&logo=firefox)](https://addons.mozilla.org/addon/zipline-extension)
 [![GitHub Release Version](https://img.shields.io/github/v/release/cssnr/zipline-extension?logo=github)](https://github.com/cssnr/zipline-extension/releases/latest)
-[![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=cachet&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
-[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/test.yaml?logo=cachet&label=test)](https://github.com/cssnr/zipline-extension/actions/workflows/test.yaml)
-[![Workflow Pages](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/pages.yaml?logo=cachet&label=pages)](https://github.com/cssnr/zipline-extension/actions/workflows/pages.yaml)
 [![Deployments Pages](https://img.shields.io/github/deployments/cssnr/zipline-extension/docs?logo=vitepress&logoColor=white&label=docs)](https://github.com/cssnr/zipline-extension/deployments/docs)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cssnr_zipline-extension&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=cssnr_zipline-extension)
-[![GitHub Contributors](https://img.shields.io/github/contributors/cssnr/zipline-extension?logo=github)](https://github.com/cssnr/zipline-extension/graphs/contributors)
-[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/zipline-extension?logo=github&label=updated)](https://github.com/cssnr/zipline-extension/pulse)
-[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/zipline-extension?logo=htmx&logoColor=white)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
-[![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/zipline-extension?logo=bookstack&logoColor=white&label=repo%20size)](https://github.com/cssnr/zipline-extension)
-[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=github&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
+[![Workflow Build](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/build.yaml?logo=norton&logoColor=white&label=build)](https://github.com/cssnr/zipline-extension/actions/workflows/build.yaml)
+[![Workflow Test](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/test.yaml?logo=norton&logoColor=white&label=test)](https://github.com/cssnr/zipline-extension/actions/workflows/test.yaml)
+[![Workflow Pages](https://img.shields.io/github/actions/workflow/status/cssnr/zipline-extension/pages.yaml?logo=norton&logoColor=white&label=pages)](https://github.com/cssnr/zipline-extension/actions/workflows/pages.yaml)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/cssnr/zipline-extension?logo=listenhub&label=updated)](https://github.com/cssnr/zipline-extension/pulse)
+[![GitHub Repo Size](https://img.shields.io/github/repo-size/cssnr/zipline-extension?logo=buffer&label=repo%20size)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+[![GitHub Top Language](https://img.shields.io/github/languages/top/cssnr/zipline-extension?logo=devbox)](https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme)
+[![GitHub Contributors](https://img.shields.io/github/contributors-anon/cssnr/zipline-extension?logo=southwestairlines)](https://github.com/cssnr/zipline-extension/graphs/contributors)
+[![GitHub Issues](https://img.shields.io/github/issues/cssnr/zipline-extension?logo=codeforces&logoColor=white)](https://github.com/cssnr/zipline-extension/issues)
+[![GitHub Discussions](https://img.shields.io/github/discussions/cssnr/zipline-extension?logo=theconversation)](https://github.com/cssnr/zipline-extension/discussions)
+[![GitHub Forks](https://img.shields.io/github/forks/cssnr/zipline-extension?style=flat&logo=forgejo&logoColor=white)](https://github.com/cssnr/zipline-extension/forks)
+[![GitHub Repo Stars](https://img.shields.io/github/stars/cssnr/zipline-extension?style=flat&logo=gleam&logoColor=white)](https://github.com/cssnr/zipline-extension/stargazers)
+[![GitHub Org Stars](https://img.shields.io/github/stars/cssnr?style=flat&logo=apachespark&logoColor=white&label=org%20stars)](https://cssnr.github.io/)
 [![Discord](https://img.shields.io/discord/899171661457293343?logo=discord&logoColor=white&label=discord&color=7289da)](https://discord.gg/wXy6m2X8wY)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-72a5f2?logo=kofi&label=support)](https://ko-fi.com/cssnr)
 
 # Zipline Web Extension
+
+<a title="Zipline Web Extension" href="https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme" target="_blank">
+<img alt="Zipline Web Extension" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/zipline-extension/refs/heads/master/src/media/logo128.png"></a>
 
 - [Install](#install)
 - [Features](#features)
@@ -35,14 +42,15 @@ Upload files by dragging and dropping from your computer to the popup or side pa
 Remotely upload media from any website with the right-click context menu.
 
 This web extension is in active development but already has a large [feature set](#features). Expect major changes in future releases.
-Please let us know [which features](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) you would like to see.
+Please let us know [which features](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml) you would like to see.
 
 Check all the [features](https://zipline-extension.cssnr.com/guides/features) and [screenshots](https://zipline-extension.cssnr.com/guides/features#screenshots) on the [website](https://zipline-extension.cssnr.com/).
 
-We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) - [cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=quicklook)](https://zipline-extension.cssnr.com/)
 
-> [!TIP]  
-> ▶️ View the [Getting Started Guide](https://zipline-extension.cssnr.com/guides/get-started) on the website.
+> [!NOTE]  
+> We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/).  
+> [https://github.com/cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme)
 
 # Install
 
@@ -71,8 +79,6 @@ Mobile browser support available for
 
 ## Features
 
-> View the [Features](https://zipline-extension.cssnr.com/guides/features) on the website.
-
 - View Recent Uploads on Popup/Side Panel.
   - Auto Preview on Mouseover Links.
   - Including Edit, Delete, Copy, and More...
@@ -85,7 +91,7 @@ Mobile browser support available for
 
 > [!TIP]  
 > **Don't see your feature here?**
-> Request one on the [Feature Request Discussion](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests).
+> Submit a [Feature Request](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml).
 
 ### Planned
 
@@ -97,7 +103,7 @@ Mobile browser support available for
 
 > [!TIP]  
 > **Don't see your issue here?**
-> Submit a new [Issue](https://github.com/cssnr/zipline-extension/issues).
+> Open a [new Issue](https://github.com/cssnr/zipline-extension/issues).
 
 ## Configure
 
@@ -105,9 +111,9 @@ You can pin the Addon by clicking the `Puzzle Piece`, find the `Zipline Extensio
 **Firefox**, click the `Settings Wheel` and `Pin to Toolbar`.  
 **Chrome**, click the `Pin` icon.
 
-## Setup
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=quicklook)](https://zipline-android.cssnr.com/guides/get-started#login)
 
-> View the [Setup Guide](https://zipline-extension.cssnr.com/guides/get-started#setup) on the website.
+## Setup
 
 To automatically configure the web extension to work with your Zipline instance do the following:
 
@@ -122,21 +128,26 @@ Right-click on any Image, Video, Audio, or URL upload to Zipline or Shorten URL.
 
 Alternatively, you can open the Options page and add your URL and Token manually.
 
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=quicklook)](https://zipline-extension.cssnr.com/guides/get-started#setup)
+
 ## Support
-
-For help using the web extension, utilize any these resources:
-
-- Q&A Discussion: https://github.com/cssnr/zipline-extension/discussions/categories/q-a
-- Request a Feature: https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests
-
-If you are experiencing an issue/bug or getting unexpected results, use:
-
-- Report an Issue: https://github.com/cssnr/zipline-extension/issues
-- Chat with us on Discord: https://discord.gg/wXy6m2X8wY
-- Provide Anonymous Feedback: [https://cssnr.github.io/feedback](https://cssnr.github.io/feedback?app=Zipline%20Extension)
 
 Logs can be found inspecting the page (Ctrl+Shift+I), clicking on the Console, and;
 Firefox: toggling Debug logs, Chrome: toggling Verbose from levels dropdown.
+
+If you run into any issues or need help getting started, please do one of the following:
+
+- Report an Issue: <https://github.com/cssnr/zipline-extension/issues>
+- Q&A Discussion: <https://github.com/cssnr/zipline-extension/discussions/categories/q-a>
+- Request a Feature: <https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml>
+- Chat with us on Discord: <https://discord.gg/wXy6m2X8wY>
+
+[![Features](https://img.shields.io/badge/features-brightgreen?style=for-the-badge&logo=rocket&logoColor=white)](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml)
+[![Issues](https://img.shields.io/badge/issues-red?style=for-the-badge&logo=southwestairlines&logoColor=white)](https://github.com/cssnr/zipline-extension/issues)
+[![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=livechat&logoColor=white)](https://github.com/cssnr/zipline-extension/discussions)
+[![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
+
+To support this project, see the [Contributing](#Contributing) section at the bottom.
 
 # Contributing
 
@@ -177,3 +188,11 @@ More Related Products:
 - [Django Files Web Extension](https://github.com/django-files/web-extension?tab=readme-ov-file#readme)
 
 For a full list of current projects visit: [https://cssnr.github.io/](https://cssnr.github.io/)
+
+<a href="https://github.com/cssnr/zipline-extension/stargazers">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=cssnr/zipline-android%2Ccssnr/zipline-extension%2Ccssnr/zipline-cli&type=date&legend=top-left&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=cssnr/zipline-android%2Ccssnr/zipline-extension%2Ccssnr/zipline-cli&type=date&legend=top-left" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=cssnr/zipline-android%2Ccssnr/zipline-extension%2Ccssnr/zipline-cli&type=date&legend=top-left" />
+ </picture>
+</a>

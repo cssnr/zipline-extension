@@ -2,8 +2,8 @@ name: "Test"
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "18 18 * * 1,3,5"
+  #schedule:
+  #  - cron: "18 18 * * 1,3,5"
   #pull_request:
   #  branches: [master]
   push:
@@ -49,7 +49,7 @@ jobs:
 
       - name: "Push Artifacts"
         uses: cssnr/push-artifacts-action@master
-        if: ${{ github.event_name == 'pull_request' }}
+        #if: ${{ github.event_name == 'pull_request' }}
         continue-on-error: true
         with:
           source: "tests/screenshots/"

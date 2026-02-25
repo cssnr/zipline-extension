@@ -26,9 +26,7 @@ const browsers = [
 ]
 
 // Class
-const imageClass = props.animation
-  ? `animate__animated ${props.animation}`
-  : null
+const imageClass = props.animation ? `animate__animated ${props.animation}` : null
 
 // Style
 const iconStyle = { minHeight: `${props.size}px` }

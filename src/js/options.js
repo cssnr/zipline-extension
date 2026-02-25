@@ -58,8 +58,7 @@ async function initOptions() {
     // noinspection ES6MissingAwait
     checkPerms()
 
-    document.getElementById('version').textContent =
-        chrome.runtime.getManifest().version
+    document.getElementById('version').textContent = chrome.runtime.getManifest().version
     await setShortcuts('#keyboard-shortcuts')
 
     const { options } = await chrome.storage.sync.get(['options'])

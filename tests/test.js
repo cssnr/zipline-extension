@@ -43,21 +43,17 @@ async function screenshot(name) {
 async function getPage(name, log, size) {
     console.debug(`getPage: ${name}`, log, size)
     const target = await browser.waitForTarget(
-        (target) => target.type() === 'page' && target.url().endsWith(name)
+        (target) => target.type() === 'page' && target.url().endsWith(name),
     )
     page = await target.asPage()
-    await page.emulateMediaFeatures([
-        { name: 'prefers-color-scheme', value: 'dark' },
-    ])
+    await page.emulateMediaFeatures([{ name: 'prefers-color-scheme', value: 'dark' }])
     if (size) {
         const [width, height] = size.split('x').map((x) => parseInt(x))
         await page.setViewport({ width, height })
     }
     if (log) {
         console.debug(`Adding Logger: ${name}`)
-        page.on('console', (msg) =>
-            console.log(`console: ${name}:`, msg.text())
-        )
+        page.on('console', (msg) => console.log(`console: ${name}:`, msg.text()))
     }
     return page
 }
@@ -81,7 +77,7 @@ async function getPage(name, log, size) {
     const workerTarget = await browser.waitForTarget(
         (target) =>
             target.type() === 'service_worker' &&
-            target.url().endsWith('service-worker.js')
+            target.url().endsWith('service-worker.js'),
     )
     const worker = await workerTarget.worker()
     console.log('worker:', worker)
@@ -112,15 +108,11 @@ async function getPage(name, log, size) {
     // await page.locator('.show-hide').click()
     await screenshot('options')
 
-    await page
-        .locator('.form-check:nth-of-type(3) input[name="radioBackground"]')
-        .click()
+    await page.locator('.form-check:nth-of-type(3) input[name="radioBackground"]').click()
     await page.waitForNetworkIdle()
     await screenshot('options')
 
-    await page
-        .locator('.form-check:nth-of-type(1) input[name="radioBackground"]')
-        .click()
+    await page.locator('.form-check:nth-of-type(1) input[name="radioBackground"]').click()
     await page.waitForNetworkIdle()
     await screenshot('options')
 
@@ -146,6 +138,7 @@ async function getPage(name, log, size) {
     await page.waitForNetworkIdle()
     await screenshot('popup')
 
+    // await page.waitForSelector('[data-action="favorite"]', { visible: true })
     await page.locator('[data-action="favorite"]').click()
     await page.hover('tr')
     await page.waitForNetworkIdle()
@@ -153,6 +146,7 @@ async function getPage(name, log, size) {
 
     await page.hover('tr')
     await page.locator('.ctx-button').click()
+    // await page.waitForSelector('[data-action="favorite"]', { visible: true })
     await page.locator('[data-action="favorite"]').click()
     await page.hover('tr')
     await page.waitForNetworkIdle()

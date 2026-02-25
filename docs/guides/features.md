@@ -15,7 +15,7 @@
 - Automatic Dark/Light Mode based on Browser Settings.
 
 ::: info
-Missing a feature? Submit a [Feature Request](https://github.com/cssnr/zipline-extension/discussions/categories/feature-requests) and we will get it added!
+Missing a feature? Submit a [Feature Request](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml) and we will get it added!
 :::
 
 ## Screenshots
