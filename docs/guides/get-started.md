@@ -43,15 +43,22 @@ If you have any trouble getting started, [support is available](../support.md).
 
 ### Automatic Setup
 
-You must use [Manual Setup](#manual-setup) starting with Zipline v4.4.1 or later.
-
 ::: warning
-Zipline set the Cookie HttpOnly to `true` which makes automatic authentication impossible.
-
-This method no longer works and will be removed in a future update.
+You must use [Manual Setup](#manual-setup) starting with Zipline v4.4.1 or later.
 :::
 
+::: details View Automatic Setup
+
+1. Navigate to your Zipline Dashboard.
+2. Activate the Popup _(1 of 3 ways)_.
+   - Click the Toolbar Icon.
+   - Use the Right Click Menu.
+   - Use the Keyboard Shortcut.
+3. Click **Authenticate with Current Site**.
+
 ![Auth Popup](https://raw.githubusercontent.com/smashedr/repo-images/refs/heads/master/zipline/extension/docs/auth.jpg)
+
+:::
 
 ## Server
 

@@ -30,10 +30,7 @@ export default defineConfig({
   description: settings.description.short,
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' }],
-    [
-      'link',
-      { rel: 'apple-touch-icon', sizes: '180x180', href: settings.image },
-    ],
+    ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: settings.image }],
 
     ['meta', { name: 'darkreader-lock' }],
 
@@ -43,20 +40,14 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:site_name', content: settings.name }],
     ['meta', { property: 'og:title', content: settings.title }],
-    [
-      'meta',
-      { property: 'og:description', content: settings.description.short },
-    ],
+    ['meta', { property: 'og:description', content: settings.description.short }],
     ['meta', { property: 'og:image', content: settings.image }],
     ['meta', { property: 'og:image:alt', content: settings.title }],
 
     ['meta', { property: 'twitter:card', content: 'summary' }],
     ['meta', { property: 'twitter:site', content: settings.name }],
     ['meta', { property: 'twitter:title', content: settings.title }],
-    [
-      'meta',
-      { property: 'twitter:description', content: settings.description.short },
-    ],
+    ['meta', { property: 'twitter:description', content: settings.description.short }],
     ['meta', { property: 'twitter:image', content: settings.image }],
     ['meta', { property: 'twitter:image:alt', content: settings.title }],
   ],

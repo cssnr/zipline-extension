@@ -17,7 +17,7 @@ export async function linkClick(event, close = false) {
         close = false
     }
     console.debug('close:', close)
-    const href = target.getAttribute('href').replace(/^\.+/g, '')
+    const href = target.getAttribute('href').replace(/^\.+/, '')
     console.debug('href:', href)
     let url
     if (href.startsWith('#')) {
@@ -73,12 +73,16 @@ export async function activateOrOpen(url, open = true) {
 
 /**
  * The New Quick and Dirty Open Popup or Panel Method
+ * NOTE: chrome.action.openPopup requires Chrome>=127
  * @function openPopupPanel
  */
 export async function openPopupPanel() {
     try {
         // noinspection JSUnresolvedReference
-        if (typeof browser !== 'undefined') {
+        if (
+            typeof browser !== 'undefined' &&
+            typeof browser?.runtime?.getBrowserInfo === 'function'
+        ) {
             try {
                 await chrome.action.openPopup()
             } catch {
@@ -156,7 +160,7 @@ export async function openExtPanel(
     url = '/html/popup.html',
     width = 0,
     height = 0,
-    type = 'panel'
+    type = 'panel',
 ) {
     let { lastPanelID, panelSize } = await chrome.storage.local.get([
         'lastPanelID',
@@ -198,7 +202,7 @@ export async function updatePlatform() {
         // document.querySelectorAll('[class*="mobile-"]').forEach((el) => {
         document
             .querySelectorAll(
-                '[data-mobile-add],[data-mobile-remove],[data-mobile-replace]'
+                '[data-mobile-add],[data-mobile-remove],[data-mobile-replace]',
             )
             .forEach((el) => {
                 if (el.dataset.mobileAdd) {
