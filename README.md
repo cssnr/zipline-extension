@@ -48,7 +48,7 @@ Check all the [features](https://zipline-extension.cssnr.com/guides/features) an
 
 We are also developing a native [Zipline Android Application](https://zipline-android.cssnr.com/) - [cssnr/zipline-android](https://github.com/cssnr/zipline-android?tab=readme-ov-file#readme).
 
-[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=quicklook)](https://zipline-extension.cssnr.com/guides/get-started)
+[![View Documentation](https://img.shields.io/badge/view_documentation-blue?style=for-the-badge&logo=quicklook)](https://zipline-extension.cssnr.com/)
 
 # Install
 
