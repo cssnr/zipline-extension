@@ -22,7 +22,7 @@
 
 # Zipline Web Extension
 
-<a title="Zipline Web Extension" href="https://github.com/cssnr/zipline-extension?tab=readme-ov-file#readme" target="_blank">
+<a title="Zipline Web Extension" href="https://zipline-extension.cssnr.com/" target="_blank">
 <img alt="Zipline Web Extension" align="right" width="128" height="auto" src="https://raw.githubusercontent.com/cssnr/zipline-extension/refs/heads/master/src/media/logo128.png"></a>
 
 - [Install](#install)
@@ -151,7 +151,7 @@ To support this project, see the [Contributing](#Contributing) section at the bo
 
 # Contributing
 
-All contributions are welcome including [bug reports](https://github.com/cssnr/vitepress-swiper/issues), [feature requests](https://github.com/cssnr/vitepress-swiper/discussions/categories/feature-requests), or pull requests.
+All contributions are welcome including [bug reports](https://github.com/cssnr/vitepress-swiper/issues), [feature requests](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml), or pull requests.
 
 For instructions on creating a PR for the Web Extension or Documentation, see the [CONTRIBUTING.md](#contributing-ov-file).
 

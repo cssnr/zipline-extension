@@ -533,7 +533,7 @@ async function fetchToken() {
  */
 function genLoadingData(rows) {
     console.debug('genLoadingData:', rows)
-    const number = parseInt(rows.toString(), 10)
+    const number = Number.parseInt(rows.toString(), 10)
     if (number > 0) {
         filesTable.classList.remove('d-none')
         const tbody = filesTable.querySelector('tbody')
