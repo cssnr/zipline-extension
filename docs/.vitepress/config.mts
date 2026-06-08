@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import instructions from 'vitepress-chat/instructions'
 
 const settings = {
   title: 'Zipline Extension',
@@ -21,9 +22,13 @@ export default defineConfig({
   // srcDir: './docs',
   // base: '/path/',
   vite: {
+    envDir: '..',
     server: {
       allowedHosts: true,
     },
+    plugins: [
+      instructions({ filePath: 'llms.txt', exclude: ['index.md', 'updates/**'] }),
+    ],
   },
 
   title: settings.title,

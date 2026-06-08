@@ -147,15 +147,12 @@ If you run into any issues or need help getting started, please do one of the fo
 [![Discussions](https://img.shields.io/badge/discussions-blue?style=for-the-badge&logo=livechat&logoColor=white)](https://github.com/cssnr/zipline-extension/discussions)
 [![Discord](https://img.shields.io/badge/discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/wXy6m2X8wY)
 
-To support this project, see the [Contributing](#Contributing) section at the bottom.
+## Contributing
 
-# Contributing
+For instructions on building the extension or documentation, see the [CONTRIBUTING.md](#contributing-ov-file).
 
-All contributions are welcome including [bug reports](https://github.com/cssnr/vitepress-swiper/issues), [feature requests](https://github.com/cssnr/zipline-extension/issues/new?template=1-feature.yaml), or pull requests.
-
-For instructions on creating a PR for the Web Extension or Documentation, see the [CONTRIBUTING.md](#contributing-ov-file).
-
-Please consider making a donation to support the development of this project and additional open source projects.
+Please consider making a donation to support the development of this project
+and [additional](https://cssnr.com/) open source projects.
 
 [![Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/cssnr)
 
@@ -179,6 +176,8 @@ Additionally, you can star or provide a 5-star rating on other Web Extensions I 
 - [ASN Plus](https://github.com/cssnr/asn-plus?tab=readme-ov-file#readme)
 - [Aviation Tools](https://github.com/cssnr/aviation-tools?tab=readme-ov-file#readme)
 - [Text Formatter](https://github.com/cssnr/text-formatter?tab=readme-ov-file#readme)
+- [GeoImage](https://github.com/cssnr/geo-image?tab=readme-ov-file#readme)
+- [New Tab](https://github.com/cssnr/new-tab?tab=readme-ov-file#readme)
 
 More Related Products:
 

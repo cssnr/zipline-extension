@@ -8,6 +8,10 @@ contact_links:
     about: Chat with us about anything
     url: https://discord.gg/wXy6m2X8wY
 
-  - name: "🌐 View Developer Site"
+  - name: "📑 View Documentation"
+    about: View the documentation site
+    url: https://zipline-extension.cssnr.com/
+
+  - name: "🌐 Visit Developer Site"
     about: Visit the developers website
     url: https://cssnr.github.io/
