@@ -31,7 +31,7 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@v6
 
-      - name: "Setup Node 24"
+      - name: "Setup Node"
         uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -48,9 +48,9 @@ jobs:
           npm run test
 
       - name: "Push Artifacts"
-        uses: cssnr/push-artifacts-action@master
         #if: ${{ github.event_name == 'pull_request' }}
         continue-on-error: true
+        uses: cssnr/push-artifacts-action@master
         with:
           source: "tests/screenshots/"
           dest: "/static"

@@ -26,9 +26,11 @@ jobs:
     permissions:
       contents: read
     with:
+      #install: "npm ci --legacy-peer-deps"
       build: "npm run docs:deploy"
       path: "docs/.vitepress/dist"
       pages: true
+    secrets: inherit
 
   deploy:
     name: "Deploy"
@@ -47,7 +49,7 @@ jobs:
     steps:
       - name: "Deploy Pages"
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
       - name: "Send Deploy Notification"
         if: ${{ !cancelled() }}
@@ -58,7 +60,7 @@ jobs:
           description: ${{ steps.deployment.outputs.page_url }}
 
   post:
-    name: "Post-Deploy"
+    name: "Post"
     runs-on: ubuntu-latest
     timeout-minutes: 5
     needs: deploy
@@ -73,7 +75,7 @@ jobs:
 
       - name: "Algolia Crawler"
         if: ${{ env.crawler-id != '' }}
-        uses: cssnr/algolia-crawler-action@v1
+        uses: cssnr/algolia-crawler-action@v2
         with:
           crawler_id: ${{ env.crawler-id }}
           crawler_user_id: ${{ secrets.CRAWLER_USER_ID }}

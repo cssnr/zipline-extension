@@ -1,5 +1,6 @@
 name: "⚠️ Report an Issue"
 description: "Please let us know if something is not right..."
+type: bug
 labels: ["bug"]
 assignees:
   - smashedr
@@ -8,7 +9,16 @@ body:
   - type: markdown
     attributes:
       value: |
-        All issues will be responded too.
+        ### All issues will be responded too.
+
+  - type: textarea
+    id: description
+    validations:
+      required: true
+    attributes:
+      label: Description
+      description: Describe the issue you are experiencing.
+      placeholder: Please describe the issue and how to reproduce it.
 
   - type: input
     id: website
@@ -16,20 +26,11 @@ body:
       required: false
     attributes:
       label: Site Link
-      description: Please provide a link to the site you are having issues on if possible.
+      description: Provide a link to a website if applicable.
       placeholder: https://example.com/
 
   - type: textarea
-    id: description
-    validations:
-      required: true
-    attributes:
-      label: Details
-      description: Please describe the issue you are experiencing and how to reproduce.
-      placeholder: Provide as many details as you can...
-
-  - type: textarea
-    id: logs
+    id: support
     validations:
       required: true
     attributes:
@@ -40,4 +41,4 @@ body:
   - type: markdown
     attributes:
       value: |
-        All issues/bugs that we can verify will be fixed. Thank you for taking the time to make this report!
+        Thank you for taking the time to make this report!

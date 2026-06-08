@@ -10,6 +10,18 @@
     --vp-home-hero-image-filter: blur(44px);
 }
 
+@supports (scrollbar-gutter: stable) {
+    /* Note: local search is: 768px */
+    @media (min-width: 769px) {
+        html {
+            scrollbar-gutter: stable;
+        }
+        html:has(:fullscreen) {
+            scrollbar-gutter: auto;
+        }
+    }
+}
+
 body {
     overflow-y: scroll;
 }
@@ -24,15 +36,6 @@ table th {
 
 .search-keywords {
     display: none;
-}
-
-/* NOTE: This is a "fix" for the search modal content shift */
-@supports (scrollbar-gutter: stable) {
-    @media (min-width: 769px) {
-        html {
-            scrollbar-gutter: stable;
-        }
-    }
 }
 
 .vp-doc p > img,
